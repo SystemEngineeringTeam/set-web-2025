@@ -7,7 +7,9 @@
     "build": "astro build",
     "preview": "astro preview",
     "astro": "astro",
-    "format": "prettier -w ."
+    "format": "prettier -w .",
+    "download": "jiti ./script/download.ts",
+    "convert": "jiti ./script/convert.ts"
   },
   "dependencies": {
     "@astrojs/mdx": "^4.0.8",
@@ -22,6 +24,8 @@
     "swiper": "^11.2.2"
   },
   "devDependencies": {
+    "axios": "^1.7.9",
+    "jiti": "^2.4.2",
     "prettier": "^3.4.2",
     "prettier-plugin-astro": "^0.14.1"
   }
