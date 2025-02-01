@@ -1,7 +1,17 @@
+article[data-style='default'],
+article[data-style='no-underline'],
 article[data-style='a-only'] {
   a {
-    color: $primary-300;
+    margin-inline: 3px;
+    padding-inline: 3px;
+    color: $primary-200;
     text-decoration: none;
+    border-bottom: 1px solid $primary-200;
+    transition: color 0.3s;
+
+    &:hover {
+      color: $primary-400;
+    }
   }
 }
 
@@ -35,12 +45,6 @@ article[data-style='no-underline'] {
 
   p {
     margin: 20px 0;
-  }
-
-  a {
-    color: $primary-300;
-    text-decoration: none;
-    transition-duration: 0.3s;
   }
 
   img {
