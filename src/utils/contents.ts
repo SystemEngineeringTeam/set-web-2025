@@ -1,18 +1,18 @@
 import { getCollection, type CollectionEntry } from 'astro:content';
 import { toPath } from './path';
-import { DEFAULT_POST_THUMBNAIL } from './IMAGES';
+import { DEFAULT_POST_THUMBNAIL } from './images';
 
 const STATIC_ROUTES = ['', 'posts', 'post', 'products'];
 export const IMAGE_REGEX = /^[\s\n]*(<img.*?src=['"](.*)['"].*>|!\[.*\]\((.*)\))/;
 
-export async function getPages(onlyStaticRoutes = true) {
+export async function getPages(onlyDynamicRoutes = false) {
   const pages = await getCollection('pages');
   const sortedPages = pages.sort((a, b) => a.data.tags.sort - b.data.tags.sort);
   const filteredPages = sortedPages.filter((page) => page.data.title !== 'README');
 
-  if (!onlyStaticRoutes) return filteredPages;
+  if (!onlyDynamicRoutes) return filteredPages;
 
-  return filteredPages.filter((page) => STATIC_ROUTES.includes(toPath(page)));
+  return filteredPages.filter((page) => !STATIC_ROUTES.includes(toPath(page)));
 }
 
 export async function getPosts(limit: number | null = null, offset: number = 0) {

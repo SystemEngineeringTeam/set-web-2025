@@ -5,7 +5,7 @@ import HambergerMenu from './HambergerMenu.astro';
 import { getPages } from '@/utils/contents';
 import { toPath } from '@/utils/path';
 
-const pages = await getPages(false);
+const pages = await getPages();
 const displayPages = pages.filter((page) => !page.data.tags.other);
 ---
 

@@ -5,7 +5,10 @@ import { render, type CollectionEntry } from 'astro:content';
 import { getPages } from '@/utils/contents';
 
 export async function getStaticPaths() {
-  const posts = await getPages();
+  const posts = await getPages(true);
+  posts.forEach((post) => {
+    console.log(">", toPath(post));
+  });
 
   return posts.map((post) => ({
     params: { slug: toPath(post) },
