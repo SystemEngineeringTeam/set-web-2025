@@ -7,9 +7,6 @@ import '@/styles/md-styles.scss';
 
 export async function getStaticPaths() {
   const posts = await getPages(true);
-  posts.forEach((post) => {
-    console.log('>', toPath(post));
-  });
 
   return posts.map((post) => ({
     params: { slug: toPath(post) },

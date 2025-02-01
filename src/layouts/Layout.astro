@@ -3,6 +3,16 @@ import { PRELOAD_IMAGE_MAP } from '@/utils/images';
 import Header from '@/components/Header/index.astro';
 import Footer from '@/components/Footer/index.astro';
 import '@/styles/globals.scss';
+import {
+  CATEGORY,
+  DESCRIPTION,
+  FAVICON,
+  HOST_NAME,
+  KEY_WORDS,
+  OGP_IMAGE,
+  SITE_NAME,
+  TWITTER_CARD_TYPE,
+} from '@/consts/meta';
 
 interface Props {
   title?: string;
@@ -10,17 +20,47 @@ interface Props {
 }
 
 const { title, scrollable } = Astro.props;
+
+const faviconType = `image/${FAVICON.format}`;
+
+const ogpImageWidth = OGP_IMAGE.width.toString();
+const ogpImageHeight = OGP_IMAGE.height.toString();
+const ogpImageType = `image/${OGP_IMAGE.format}`;
+const ogpImageUrl = new URL(OGP_IMAGE.src, Astro.url);
+ogpImageUrl.searchParams.append('v', Date.now().toString());
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang="ja">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
-    <link rel="icon" type="image/png" href="/favicon.png" />
+    <link rel="icon" type={faviconType} href={FAVICON.src} />
     <meta name="generator" content={Astro.generator} />
     {Object.values(PRELOAD_IMAGE_MAP).map((value) => <link rel="preload" href={value} as="image" />)}
-    <title>{title == undefined ? 'シス研' : `${title} | シス研`}</title>
+    <title>{title == undefined ? 'システム工学研究会' : `${title} | シス研`}</title>
+
+    <meta name="description" content={DESCRIPTION} />
+    <meta name="application-name" content={SITE_NAME} />
+    <meta name="keywords" content={KEY_WORDS.join(',')} />
+    <meta name="category" content={CATEGORY} />
+    <meta property="og:title" content={SITE_NAME} />
+    <meta property="og:description" content={DESCRIPTION} />
+    <meta property="og:url" content={HOST_NAME} />
+    <meta property="og:site_name" content={SITE_NAME} />
+    <meta property="og:locale" content="ja_JP" />
+    <meta property="og:image:type" content={ogpImageType} />
+    <meta property="og:image:width" content={ogpImageWidth} />
+    <meta property="og:image:height" content={ogpImageHeight} />
+    <meta property="og:image" content={ogpImageUrl.toString()} />
+    <meta property="og:type" content={CATEGORY} />
+    <meta name="twitter:card" content={TWITTER_CARD_TYPE} />
+    <meta name="twitter:title" content={SITE_NAME} />
+    <meta name="twitter:description" content={DESCRIPTION} />
+    <meta name="twitter:image:type" content={ogpImageType} />
+    <meta name="twitter:image:width" content={ogpImageWidth} />
+    <meta name="twitter:image:height" content={ogpImageHeight} />
+    <meta name="twitter:image" content={ogpImageUrl.toString()} />
   </head>
 
   <body data-scrollable={scrollable}>
