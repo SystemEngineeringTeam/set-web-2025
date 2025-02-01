@@ -6,6 +6,7 @@ import AutoImport from 'astro-auto-import';
 
 // https://astro.build/config
 export default defineConfig({
+  site: 'https://sysken.net',
   integrations: [
     AutoImport({
       imports: [
