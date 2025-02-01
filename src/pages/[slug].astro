@@ -22,7 +22,7 @@ const post = Astro.props;
 const { Content } = await render(post);
 ---
 
-<Layout>
+<Layout title={post.data.title}>
   <article data-style="default">
     <h1 data-hidden={post.data.tags.title}>{post.data.title}</h1>
 
