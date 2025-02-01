@@ -1,14 +1,17 @@
 ---
+import type { PAGE_STYLE } from '@/consts/page-style';
 import { marked } from 'marked';
+import "@/styles/md-styles.scss"
 
 interface Props {
   markdown: string;
+  style: (typeof PAGE_STYLE)[number];
 }
-const { markdown } = Astro.props;
+const { markdown, style } = Astro.props;
 
 const content = marked.parse(markdown);
 ---
 
-<section>
+<article data-style={style}>
   <Fragment set:html={content} />
-</section>
+</article>

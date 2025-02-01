@@ -14,14 +14,15 @@ const contents = page.body.split('---');
 ---
 
 <Layout>
-  <h1>{page.data.title}</h1>
   <ImageSectino src={prelaodImageMap.hero} />
 
   {
     contents.map((content, i) => (
       <>
         <ImageSectino index={i} />
-        <Render markdown={content} />
+        <section class="content">
+          <Render markdown={content} style='no-underline' />
+        </section>
       </>
     ))
   }
@@ -31,5 +32,11 @@ const contents = page.body.split('---');
   .hero {
     width: 100%;
     height: 100%;
+  }
+
+  .content {
+    max-width: 800px;
+    padding: 70px 20px 80px;
+    margin-inline: auto;
   }
 </style>
