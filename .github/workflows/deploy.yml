@@ -15,7 +15,39 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
+  img:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.head_ref }}
+      - uses: technote-space/get-diff-action@v6
+        with:
+          PATTERNS: src/contents/**/*.md
+      - uses: pnpm/action-setup@v4
+        name: Install pnpm
+        with:
+          version: 10
+          run_install: false
+      - name: Install Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: 'pnpm'
+      - name: Install dependencies
+        run: pnpm install
+      - name: Install dependencies
+        run: pnpm install
+
+      - name: Run Download
+        env:
+          COMMIT_ID: ${{ github.sha }}
+        run: |
+          pnpm download
+          pnpm convert
+
   build:
+    needs: img
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
@@ -25,7 +57,6 @@ jobs:
         with:
           node-version: 20
           package-manager: pnpm@latest
-
 
   deploy:
     needs: build
