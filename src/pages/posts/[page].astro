@@ -1,0 +1,36 @@
+---
+import Layout from '@/layouts/Layout.astro';
+import { getPosts } from '@/utils/contents';
+
+export async function getStaticPaths() {
+  const CONTENTS_NUM = 12;
+
+  const posts = await getPosts();
+  const pageNum = Math.ceil(posts.length / CONTENTS_NUM);
+
+  return Array.from({ length: pageNum }).map((_, i) => ({
+    params: { page: (i + 1).toString() },
+    props: {
+      page: i + 1,
+      posts: posts.slice(i * CONTENTS_NUM, (i + 1) * CONTENTS_NUM),
+    },
+  }));
+}
+
+// const { page, posts } = Astro.props;
+---
+
+<Layout title="投稿">
+  <div>
+    <h1>制作中</h1>
+  </div>
+</Layout>
+
+<style lang="scss">
+  div {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+</style>

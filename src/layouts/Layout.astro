@@ -6,9 +6,10 @@ import '@/styles/globals.scss';
 
 interface Props {
   title?: string;
+  scrollable?: boolean;
 }
 
-const { title } = Astro.props;
+const { title, scrollable } = Astro.props;
 ---
 
 <!doctype html>
@@ -22,7 +23,7 @@ const { title } = Astro.props;
     <title>{title == undefined ? 'シス研' : `${title} | シス研`}</title>
   </head>
 
-  <body>
+  <body data-scrollable={scrollable}>
     <Header />
 
     <main>
@@ -42,5 +43,6 @@ const { title } = Astro.props;
   }
   main {
     padding-top: $header-height;
+    min-height: 100vh;
   }
 </style>
