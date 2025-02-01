@@ -2,8 +2,9 @@
 import Render from '@/components/Render.astro';
 import Layout from '../layouts/Layout.astro';
 import { getCollection, render } from 'astro:content';
-import ImageSectino from '@/components/ImageSectino.astro';
-import { prelaodImageMap } from '@/utils/images';
+import ImageArea from '@/components/ImageArea.astro';
+import Carousel from '@/components/Carousel.astro';
+import { images, prelaodImageMap } from '@/utils/images';
 
 const posts = await getCollection('pages');
 const page = posts.find((post) => post.data.tags.path === '');
@@ -14,14 +15,25 @@ const contents = page.body.split('---');
 ---
 
 <Layout>
-  <ImageSectino src={prelaodImageMap.hero} />
+  <section class="top-section">
+    <div class="center">
+      <h1 set:html={contents.at(0)} />
+    </div>
+    <Carousel images={images} />
+  </section>
+
+  <section>
+    <ImageArea src={prelaodImageMap.hero} />
+  </section>
 
   {
-    contents.map((content, i) => (
+    contents.slice(1).map((content, i) => (
       <>
-        <ImageSectino index={i} />
+        <section>
+          <ImageArea index={i} />
+        </section>
         <section class="content">
-          <Render markdown={content} style='no-underline' />
+          <Render markdown={content} style="no-underline" />
         </section>
       </>
     ))
@@ -29,6 +41,28 @@ const contents = page.body.split('---');
 </Layout>
 
 <style lang="scss">
+  .top-section {
+    width: 100%;
+    height: calc(100vh - $header-height);
+
+    .center {
+      margin: auto;
+      height: fit-content;
+      width: fit-content;
+      inset: 0;
+      position: absolute;
+      z-index: 2;
+
+      h1 {
+        color: prima;
+        font-size: 2.5rem;
+        font-weight: bold;
+        text-align: center;
+        text-shadow: 3px 3px white;
+      }
+    }
+  }
+
   .hero {
     width: 100%;
     height: 100%;

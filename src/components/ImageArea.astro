@@ -24,7 +24,7 @@ const src = pipe({ srcSnap, srcId, index }, ({ srcSnap, srcId, index }) => {
 });
 ---
 
-<section>
+<div>
   {
     typeof src === 'string' ? (
       <img src={src} alt="image" />
@@ -32,10 +32,10 @@ const src = pipe({ srcSnap, srcId, index }, ({ srcSnap, srcId, index }) => {
       <Image width={src.width} src={src} alt="background image" />
     )
   }
-</section>
+</div>
 
 <style lang="scss">
-  section {
+  div {
     width: 100vw;
     height: 100vh;
 
