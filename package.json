@@ -12,6 +12,7 @@
   "dependencies": {
     "@astrojs/mdx": "^4.0.8",
     "@astrojs/sitemap": "^3.2.1",
+    "@fontsource/zen-kaku-gothic-new": "^5.1.1",
     "astro": "^5.2.1",
     "astro-auto-import": "^0.4.4",
     "marked": "^15.0.6",
