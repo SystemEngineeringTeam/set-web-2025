@@ -21,8 +21,8 @@ import defaultThumbnail from '@/assets/posts/default.webp';
 import syscat2 from '@/assets/syscat.webp';
 
 export const PRELOAD_IMAGE_MAP = {
-  hero: '/public/hero.webp',
-  setIcon: '/public/set.webp',
+  hero: '/hero.webp',
+  setIcon: '/set.webp',
 };
 
 export const IMAGE_MAP = {
