@@ -1,0 +1,98 @@
+---
+import { pipe } from 'remeda';
+
+interface Props {
+  page: number;
+  pageNum: number;
+  getPagePath: (n: number) => string;
+}
+const { page, pageNum, getPagePath } = Astro.props;
+
+const N = 2;
+
+const visiblePageNums = pipe(null, () => {
+  const min = page - N < 1 ? 1 : page - N;
+  const max = page + N > pageNum ? pageNum : page + N;
+  return Array.from({ length: max - min + 1 }, (_, i) => min + i);
+});
+---
+
+<div class="pagenation">
+  <a href={getPagePath(1)} data-hide={visiblePageNums.at(0) === 1}>1</a>
+  <span class="leader" data-hide={visiblePageNums.at(0) === 1}></span>
+
+  {
+    visiblePageNums.map((n) => (
+      <a href={getPagePath(n)} data-current={n === page}>
+        {n}
+      </a>
+    ))
+  }
+  <span class="leader" data-hide={visiblePageNums.at(-1) === pageNum}></span>
+  <a href={getPagePath(1)} data-hide={visiblePageNums.at(-1) === pageNum}>{pageNum}</a>
+</div>
+
+<style lang="scss">
+  .pagenation {
+    margin: 40px auto 0 auto;
+    width: fit-content;
+    user-select: none;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    a {
+      width: 30px;
+      height: 30px;
+      display: inline-block;
+      border: solid 1px;
+      color: $primary-100;
+      border-color: $primary-100;
+      border-radius: 999px;
+      text-align: center;
+      line-height: 28px;
+      text-decoration: none;
+      cursor: pointer;
+      background-color: transparent;
+
+      &[data-current='true'] {
+        background-color: $primary-400;
+      }
+
+      &[data-hide='true'] {
+        visibility: hidden;
+      }
+    }
+
+    .leader {
+      margin-inline: 15px;
+      width: 4px;
+      height: 4px;
+      display: inline-block;
+      background-color: $primary-100;
+      position: relative;
+
+      &::before,
+      &::after {
+        content: '';
+        display: block;
+        width: 4px;
+        height: 4px;
+        background-color: $primary-100;
+        position: absolute;
+      }
+
+      &::before {
+        left: -10px;
+      }
+
+      &::after {
+        right: -10px;
+      }
+
+      &[data-hide='true'] {
+        visibility: hidden;
+      }
+    }
+  }
+</style>

@@ -1,6 +1,8 @@
 ---
 import Layout from '@/layouts/Layout.astro';
 import { getPosts } from '@/utils/contents';
+import Card from '@/components/Card/index.astro';
+import Pagenation from '@/components/Pagenation/index.astro';
 
 export async function getStaticPaths() {
   const CONTENTS_NUM = 12;
@@ -12,25 +14,44 @@ export async function getStaticPaths() {
     params: { page: (i + 1).toString() },
     props: {
       page: i + 1,
+      pageNum,
       posts: posts.slice(i * CONTENTS_NUM, (i + 1) * CONTENTS_NUM),
     },
   }));
 }
 
-// const { page, posts } = Astro.props;
+const { page, pageNum, posts } = Astro.props;
 ---
 
-<Layout title="投稿">
+<Layout title="投稿一覧">
   <div>
-    <h1>制作中</h1>
+    <h1>投稿一覧</h1>
+
+    <section>
+      {posts.map((post) => <Card post={post} min />)}
+    </section>
+
+    <Pagenation page={page} pageNum={pageNum} getPagePath={(n) => `/posts/${n}`} />
   </div>
 </Layout>
 
 <style lang="scss">
   div {
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    padding: 40px 20px 60px;
+    max-width: 800px;
+    margin: 0 auto;
+
+    h1 {
+      font-size: 2rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+      border-bottom: 1px solid black;
+    }
+
+    section {
+      display: grid;
+      gap: 20px;
+      grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+    }
   }
 </style>
