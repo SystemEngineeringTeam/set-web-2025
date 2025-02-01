@@ -15,7 +15,7 @@ const displayPages = pages.filter((page) => !page.data.tags.other);
   </a>
 
   <MenuLink href="/" text="シス研" class="sysken" />
-  {displayPages.map((page) => <MenuLink href={toPath(page)} text={page.data.title} class="link" />)}
+  {displayPages.map((page) => <MenuLink href={toPath(page, true)} text={page.data.title} class="link" />)}
 
   <span class="spacer"></span>
 

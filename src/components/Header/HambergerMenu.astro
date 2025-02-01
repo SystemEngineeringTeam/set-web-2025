@@ -25,7 +25,7 @@ const { pages } = Astro.props;
       {
         pages.map((page) => (
           <li>
-            <a href={toPath(page)}>{page.data.title}</a>
+            <a href={toPath(page, true)}>{page.data.title}</a>
           </li>
         ))
       }

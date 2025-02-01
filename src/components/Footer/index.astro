@@ -10,7 +10,7 @@ const pages = await getPages();
 
 <footer>
   <div class="menu">
-    {pages.map((page) => <MenuLink href={toPath(page)} text={page.data.title} class="link" />)}
+    {pages.map((page) => <MenuLink href={toPath(page, true)} text={page.data.title} class="link" />)}
   </div>
 
   <div class="line"></div>
