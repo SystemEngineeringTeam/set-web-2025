@@ -5,7 +5,6 @@ on:
     branches: main
   workflow_dispatch:
 
-# このジョブがリポジトリをクローンし、ページデプロイメントを作成することを許可します。
 permissions:
   contents: read
   pages: write
@@ -25,6 +24,8 @@ jobs:
         uses: withastro/action@v2
         with:
           node-version: 20
+          package-manager: pnpm@latest
+
 
   deploy:
     needs: build
