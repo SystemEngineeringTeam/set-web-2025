@@ -9,7 +9,7 @@ interface Props {
 const { post, min } = Astro.props;
 ---
 
-<a href={`/post/${post.data.number}`} class="article" data-min={min} role="article">
+<a href={`/post/${post.data.number}`} class="article" data-min={min}>
   <div class="thumbnail">
     <img src={pickPostThumbnail(post.body)} alt="post thumbnail" class="img" />
   </div>

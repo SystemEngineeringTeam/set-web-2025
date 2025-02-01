@@ -47,7 +47,7 @@ const product = pipe(productCollection, (p) => {
 });
 ---
 
-<a href={product.link} target="_blank" class="article" role="article" data-haslink={product.link !== undefined}>
+<a href={product.link} target="_blank" class="article" data-haslink={product.link !== undefined}>
   <div class="thumbnail">
     <img src={product.thumbnail ?? DEFAULT_PRODUCT_THUMBNAIL.src} alt="post thumbnail" class="img" />
   </div>
