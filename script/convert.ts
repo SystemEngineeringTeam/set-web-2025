@@ -2,7 +2,7 @@ import { exec } from 'child_process';
 import fs from 'fs';
 import path from 'path';
 
-const MARKDOWN_PATH = 'src/assets';
+const MARKDOWN_PATH = 'src/contents';
 const IMAGE_REGEX = /<img.*?src=['"](\S*?)['"].*>|!\[.*\]\(([^)]+\.\w{1,5})/g;
 const IMAGE_SRC_REGEX = /src=['"](\S*?)['"]/;
 const IMAGE_MARKDOWN_REGEX = /!\[.*\]\(([^)]+\.\w{1,5})/;
