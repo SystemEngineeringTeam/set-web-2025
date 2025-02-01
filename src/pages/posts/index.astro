@@ -1,0 +1,45 @@
+---
+import Layout from '@/layouts/Layout.astro';
+import Card from '@/components/PostCard/index.astro';
+import Pagenation from '@/components/Pagenation/index.astro';
+import { getFormatedCollection } from '@/utils/contents';
+
+const CONTENTS_NUM = 12;
+
+const posts = await getFormatedCollection('posts');
+const pageNum = Math.ceil(posts.length / CONTENTS_NUM);
+export async function getStaticPaths() {}
+---
+
+<Layout title="投稿一覧">
+  <div>
+    <h1>投稿一覧</h1>
+
+    <section>
+      {posts.slice(0, CONTENTS_NUM).map((post) => <Card post={post} min />)}
+    </section>
+
+    <Pagenation page={1} pageNum={pageNum} getPagePath={(n) => `/posts/${n}`} />
+  </div>
+</Layout>
+
+<style lang="scss">
+  div {
+    padding: 40px 20px 60px;
+    max-width: 800px;
+    margin: 0 auto;
+
+    h1 {
+      font-size: 2rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+      border-bottom: 1px solid black;
+    }
+
+    section {
+      display: grid;
+      gap: 20px;
+      grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+    }
+  }
+</style>

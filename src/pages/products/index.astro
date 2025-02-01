@@ -1,0 +1,44 @@
+---
+import Layout from '@/layouts/Layout.astro';
+import { getFormatedCollection } from '@/utils/contents';
+import Card from '@/components/ProductCard/index.astro';
+import Pagenation from '@/components/Pagenation/index.astro';
+
+const CONTENTS_NUM = 12;
+
+const products = await getFormatedCollection('products');
+const pageNum = Math.ceil(products.length / CONTENTS_NUM);
+---
+
+<Layout title="制作物一覧">
+  <div>
+    <h1>制作物一覧</h1>
+
+    <section>
+      {products.slice(0, CONTENTS_NUM).map((product) => <Card product={product} />)}
+    </section>
+
+    <Pagenation page={1} pageNum={pageNum} getPagePath={(n) => `/posts/${n}`} />
+  </div>
+</Layout>
+
+<style lang="scss">
+  div {
+    padding: 40px 20px 60px;
+    max-width: 800px;
+    margin: 0 auto;
+
+    h1 {
+      font-size: 2rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+      border-bottom: 1px solid black;
+    }
+
+    section {
+      display: grid;
+      gap: 20px;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    }
+  }
+</style>
