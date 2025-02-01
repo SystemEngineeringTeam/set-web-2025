@@ -45,6 +45,8 @@ export const zPostsSchema = esaSchema({
   at: z.coerce.date().optional(),
 });
 
-export const zProductsSchema = esaSchema({}); // TODO
+export const zProductsSchema = esaSchema({
+  at: z.coerce.date().optional(),
+});
 
 export const zNoticesSchema = esaSchema({}); // TODO

@@ -9,7 +9,7 @@ interface Props {
 const { post, min } = Astro.props;
 ---
 
-<a href={`/post/${post.data.number}`} class="article" data-min={min}>
+<a href={`/post/${post.data.number}`} class="article" data-min={min} role="article">
   <div class="thumbnail">
     <img src={pickPostThumbnail(post.body)} alt="post thumbnail" class="img" />
   </div>
@@ -42,15 +42,11 @@ const { post, min } = Astro.props;
         object-fit: cover;
         cursor: pointer;
         transition: transform 0.5s ease;
-
-        &:hover {
-          transform: scale(1.05);
-        }
       }
     }
 
     .content {
-      padding: 10px 20px;
+      padding: 10px 0;
       color: initial;
 
       h3 {
@@ -81,6 +77,12 @@ const { post, min } = Astro.props;
 
       .body {
         display: none;
+      }
+    }
+
+    &:hover {
+      .img {
+        transform: scale(1.05);
       }
     }
   }

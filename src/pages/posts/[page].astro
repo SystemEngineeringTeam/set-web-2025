@@ -1,13 +1,13 @@
 ---
 import Layout from '@/layouts/Layout.astro';
-import { getPosts } from '@/utils/contents';
-import Card from '@/components/Card/index.astro';
+import Card from '@/components/PostCard/index.astro';
 import Pagenation from '@/components/Pagenation/index.astro';
+import { getFormatedCollection } from '@/utils/contents';
 
 export async function getStaticPaths() {
   const CONTENTS_NUM = 12;
 
-  const posts = await getPosts();
+  const posts = await getFormatedCollection('posts');
   const pageNum = Math.ceil(posts.length / CONTENTS_NUM);
 
   return Array.from({ length: pageNum }).map((_, i) => ({

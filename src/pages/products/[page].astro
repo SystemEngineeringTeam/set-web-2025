@@ -1,36 +1,57 @@
 ---
 import Layout from '@/layouts/Layout.astro';
-import { getCollection } from 'astro:content';
+import { getFormatedCollection } from '@/utils/contents';
+import Card from '@/components/ProductCard/index.astro';
+import Pagenation from '@/components/Pagenation/index.astro';
 
 export async function getStaticPaths() {
   const CONTENTS_NUM = 12;
 
-  const products = await getCollection('products');
+  const products = await getFormatedCollection('products');
   const pageNum = Math.ceil(products.length / CONTENTS_NUM);
 
   return Array.from({ length: pageNum }).map((_, i) => ({
     params: { page: (i + 1).toString() },
     props: {
       page: i + 1,
+      pageNum,
       products: products.slice(i * CONTENTS_NUM, (i + 1) * CONTENTS_NUM),
     },
   }));
 }
 
-const { page, products } = Astro.props;
+const { page, pageNum, products } = Astro.props;
 ---
 
-<Layout title="制作物">
+<Layout title="制作物一覧">
   <div>
-    <h1>制作中</h1>
+    <h1>制作物一覧</h1>
+
+    <section>
+      {products.map((product) => <Card product={product} />)}
+    </section>
+
+    <Pagenation page={page} pageNum={pageNum} getPagePath={(n) => `/posts/${n}`} />
   </div>
 </Layout>
 
 <style lang="scss">
   div {
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    padding: 40px 20px 60px;
+    max-width: 800px;
+    margin: 0 auto;
+
+    h1 {
+      font-size: 2rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+      border-bottom: 1px solid black;
+    }
+
+    section {
+      display: grid;
+      gap: 20px;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    }
   }
 </style>

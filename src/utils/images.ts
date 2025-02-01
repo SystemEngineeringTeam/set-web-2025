@@ -49,5 +49,6 @@ export const IMAGE_MAP = {
 export const IMAGES = Object.values(IMAGE_MAP);
 
 export const DEFAULT_POST_THUMBNAIL = defaultThumbnail;
+export const DEFAULT_PRODUCT_THUMBNAIL = defaultThumbnail;
 
 export const FOOTER_IMAGE = syscat2;

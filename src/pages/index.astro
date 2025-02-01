@@ -5,15 +5,15 @@ import { getCollection } from 'astro:content';
 import ImageArea from '@/components/ImageArea.astro';
 import Carousel from '@/components/Carousel.astro';
 import { IMAGES } from '@/utils/images';
-import { getPosts } from '@/utils/contents';
-import Card from '@/components/Card/index.astro';
+import { getFormatedCollection } from '@/utils/contents';
+import Card from '@/components/PostCard/index.astro';
 
 const pages = await getCollection('pages');
 const page = pages.find((post) => post.data.tags.path === '');
 if (page === undefined || page.body === undefined) throw new Error('404');
 const contents = page.body.split('---');
 
-const recentPosts = await getPosts(3);
+const recentPosts = await getFormatedCollection('posts', 3);
 ---
 
 <Layout>
