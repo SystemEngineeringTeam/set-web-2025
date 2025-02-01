@@ -1,15 +1,14 @@
 ---
-import { toPath } from '@/utils/path';
 import Layout from '@/layouts/Layout.astro';
 import { render, type CollectionEntry } from 'astro:content';
-import { getPages } from '@/utils/contents';
 import '@/styles/md-styles.scss';
+import { getCollection } from 'astro:content';
 
 export async function getStaticPaths() {
-  const posts = await getPages(true);
+  const posts = await getCollection('posts');
 
   return posts.map((post) => ({
-    params: { slug: toPath(post) },
+    params: { id: post.data.number },
     props: post,
   }));
 }
@@ -21,8 +20,6 @@ const { Content } = await render(post);
 
 <Layout title={post.data.title}>
   <article data-style="default">
-    <h1 data-hidden={post.data.tags.title}>{post.data.title}</h1>
-
     <Content />
   </article>
 </Layout>
@@ -32,16 +29,14 @@ const { Content } = await render(post);
     padding: 40px 20px 60px;
     max-width: 800px;
     margin: 0 auto;
+  }
+</style>
 
-    h1 {
-      font-size: 2rem;
-      font-weight: 700;
-      margin-bottom: 1rem;
-      border-bottom: 1px solid black;
-
-      &[data-hidden='false'] {
-        display: none;
-      }
+<style is:global lang="scss">
+  article {
+    & > img:first-child {
+      height: 300px;
+      object-fit: cover;
     }
   }
 </style>
