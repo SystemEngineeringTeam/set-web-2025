@@ -8,6 +8,7 @@
     "preview": "astro preview",
     "astro": "astro",
     "format": "prettier -w .",
+    "format:ci": "prettier -c .",
     "download": "jiti ./script/download.ts",
     "convert": "jiti ./script/convert.ts"
   },
