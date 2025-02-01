@@ -3,11 +3,12 @@ import { toPath } from '@/utils/path';
 import Layout from '../layouts/Layout.astro';
 import { render, type CollectionEntry } from 'astro:content';
 import { getPages } from '@/utils/contents';
+import '@/styles/md-styles.scss';
 
 export async function getStaticPaths() {
   const posts = await getPages(true);
   posts.forEach((post) => {
-    console.log(">", toPath(post));
+    console.log('>', toPath(post));
   });
 
   return posts.map((post) => ({
@@ -22,6 +23,28 @@ const { Content } = await render(post);
 ---
 
 <Layout>
-  <h1>{post.data.title}</h1>
-  <Content />
+  <article data-style="default">
+    <h1 data-hidden={post.data.tags.title}>{post.data.title}</h1>
+
+    <Content />
+  </article>
 </Layout>
+
+<style lang="scss">
+  article {
+    padding: 20px 20px 60px;
+    max-width: 800px;
+    margin: 0 auto;
+
+    h1 {
+      font-size: 2rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+      border-bottom: 1px solid black;
+
+      &[data-hidden='false'] {
+        display: none;
+      }
+    }
+  }
+</style>
