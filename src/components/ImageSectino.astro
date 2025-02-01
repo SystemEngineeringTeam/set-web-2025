@@ -1,0 +1,48 @@
+---
+import { imageMap, images } from '@/utils/images';
+import { Image } from 'astro:assets';
+import { pipe } from 'remeda';
+
+interface Props {
+  src?: string;
+  srcId?: keyof typeof imageMap;
+  index?: number;
+}
+const { src: srcSnap, srcId, index } = Astro.props;
+
+const src = pipe({ srcSnap, srcId, index }, ({ srcSnap, srcId, index }) => {
+  if (srcSnap !== undefined) {
+    return srcSnap;
+  }
+  if (srcId !== undefined) {
+    return imageMap[srcId];
+  }
+  if (index !== undefined) {
+    return images[index % images.length];
+  }
+  return images[0];
+});
+---
+
+<section>
+  {
+    typeof src === 'string' ? (
+      <img src={src} alt="image" />
+    ) : (
+      <Image width={src.width} src={src} alt="background image" />
+    )
+  }
+</section>
+
+<style lang="scss">
+  section {
+    width: 100vw;
+    height: 100vh;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+</style>

@@ -12,7 +12,12 @@
   "dependencies": {
     "@astrojs/mdx": "^4.0.8",
     "@astrojs/sitemap": "^3.2.1",
-    "astro": "^5.2.1"
+    "astro": "^5.2.1",
+    "astro-auto-import": "^0.4.4",
+    "marked": "^15.0.6",
+    "remeda": "^2.20.0",
+    "sass": "^1.83.4",
+    "sharp": "^0.33.5"
   },
   "devDependencies": {
     "prettier": "^3.4.2",

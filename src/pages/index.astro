@@ -1,6 +1,35 @@
 ---
+import Render from '@/components/Render.astro';
 import Layout from '../layouts/Layout.astro';
+import { getCollection, render } from 'astro:content';
+import ImageSectino from '@/components/ImageSectino.astro';
+import { heroSrc } from '@/utils/images';
+
+const posts = await getCollection('pages');
+const page = posts.find((post) => post.data.tags.path === '');
+
+if (page === undefined || page.body === undefined) throw new Error('404');
+
+const contents = page.body.split('---');
 ---
 
 <Layout>
+  <h1>{page.data.title}</h1>
+  <ImageSectino src={heroSrc} />
+
+  {
+    contents.map((content, i) => (
+      <>
+        <ImageSectino index={i} />
+        <Render markdown={content} />
+      </>
+    ))
+  }
 </Layout>
+
+<style lang="scss">
+  .hero {
+    width: 100%;
+    height: 100%;
+  }
+</style>
