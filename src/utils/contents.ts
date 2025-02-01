@@ -3,7 +3,7 @@ import { toPath } from './path';
 import { DEFAULT_POST_THUMBNAIL } from './images';
 import { pipe } from 'remeda';
 
-const STATIC_ROUTES = ['', 'posts', 'post', 'products'];
+const STATIC_ROUTES = ['', 'posts', 'post', 'products', 'syshack2025'];
 export const IMAGE_REGEX = /^[\s\n]*(<img.*?src=['"](.*)['"].*>|!\[.*\]\((.*)\))/;
 
 export async function getPages(onlyDynamicRoutes = false) {
