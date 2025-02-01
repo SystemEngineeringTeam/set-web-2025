@@ -1,11 +1,11 @@
 ---
-import { imageMap, images } from '@/utils/images';
+import { IMAGE_MAP, IMAGES } from '@/utils/images';
 import { Image } from 'astro:assets';
 import { pipe } from 'remeda';
 
 interface Props {
   src?: string;
-  srcId?: keyof typeof imageMap;
+  srcId?: keyof typeof IMAGE_MAP;
   index?: number;
 }
 const { src: srcSnap, srcId, index } = Astro.props;
@@ -15,12 +15,12 @@ const src = pipe({ srcSnap, srcId, index }, ({ srcSnap, srcId, index }) => {
     return srcSnap;
   }
   if (srcId !== undefined) {
-    return imageMap[srcId];
+    return IMAGE_MAP[srcId];
   }
   if (index !== undefined) {
-    return images[index % images.length];
+    return IMAGES[index % IMAGES.length];
   }
-  return images[0];
+  return IMAGES[0];
 });
 ---
 

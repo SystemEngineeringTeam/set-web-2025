@@ -41,7 +41,9 @@ export const zPagesSchema = esaSchema({
 });
 export type zPages = z.infer<typeof zPagesSchema>;
 
-export const zPostsSchema = esaSchema({}); // TODO
+export const zPostsSchema = esaSchema({
+  at: z.coerce.date().optional(),
+});
 
 export const zProductsSchema = esaSchema({}); // TODO
 

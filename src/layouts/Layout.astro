@@ -1,5 +1,5 @@
 ---
-import { prelaodImageMap } from '@/utils/images';
+import { PRELOAD_IMAGE_MAP } from '@/utils/images';
 import Header from '@/components/Header/index.astro';
 import '@/styles/globals.scss';
 ---
@@ -11,7 +11,7 @@ import '@/styles/globals.scss';
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
-    {Object.values(prelaodImageMap).map((value) => <link rel="preload" href={value} as="image" />)}
+    {Object.values(PRELOAD_IMAGE_MAP).map((value) => <link rel="preload" href={value} as="image" />)}
     <title>Astro Basics</title>
   </head>
   <body>

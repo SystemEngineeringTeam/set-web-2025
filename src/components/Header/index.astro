@@ -1,8 +1,8 @@
 ---
-import { prelaodImageMap } from '@/utils/images';
+import { PRELOAD_IMAGE_MAP } from '@/utils/images';
 import MenuLink from './MenuLink.astro';
 import HambergerMenu from './HambergerMenu.astro';
-import { getPages } from '@/utils/pages';
+import { getPages } from '@/utils/contents';
 import { toPath } from '@/utils/path';
 
 const pages = await getPages(false);
@@ -11,7 +11,7 @@ const displayPages = pages.filter((page) => !page.data.tags.other);
 
 <header>
   <a href="/" class="logo">
-    <img width="40" height="40" src={prelaodImageMap.setIcon} alt="logo" />
+    <img width="40" height="40" src={PRELOAD_IMAGE_MAP.setIcon} alt="logo" />
   </a>
 
   <MenuLink href="/" text="シス研" class="sysken" />

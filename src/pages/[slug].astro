@@ -2,7 +2,7 @@
 import { toPath } from '@/utils/path';
 import Layout from '../layouts/Layout.astro';
 import { render, type CollectionEntry } from 'astro:content';
-import { getPages } from '@/utils/pages';
+import { getPages } from '@/utils/contents';
 
 export async function getStaticPaths() {
   const posts = await getPages();

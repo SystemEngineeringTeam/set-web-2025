@@ -1,15 +1,15 @@
 ---
 import type { PAGE_STYLE } from '@/consts/page-style';
 import { marked } from 'marked';
-import "@/styles/md-styles.scss"
+import '@/styles/md-styles.scss';
 
 interface Props {
-  markdown: string;
+  markdown: string | undefined;
   style: (typeof PAGE_STYLE)[number];
 }
 const { markdown, style } = Astro.props;
 
-const content = marked.parse(markdown);
+const content = marked.parse(markdown ?? '');
 ---
 
 <article data-style={style}>

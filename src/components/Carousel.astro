@@ -2,16 +2,16 @@
 import { Image } from 'astro:assets';
 
 interface Props {
-  images: ImageMetadata[];
+  IMAGES: ImageMetadata[];
 }
 
-const { images } = Astro.props;
+const { IMAGES } = Astro.props;
 ---
 
 <div class="swiper">
   <div class="swiper-wrapper">
     {
-      images.map((image) => (
+      IMAGES.map((image) => (
         <div class="swiper-slide">
           <Image src={image} alt="carousel" />
         </div>

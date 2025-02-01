@@ -17,13 +17,14 @@ import gakusai2 from '@/assets/top/gakusai2.webp';
 import halloween2 from '@/assets/top/halloween2.webp';
 import retoro from '@/assets/top/retoro.webp';
 import xmas3 from '@/assets/top/xmas3.webp';
+import defaultThumbnail from '@/assets/posts/default.webp';
 
-export const prelaodImageMap = {
+export const PRELOAD_IMAGE_MAP = {
   hero: '/public/hero.webp',
   setIcon: '/public/set.webp',
 };
 
-export const imageMap = {
+export const IMAGE_MAP = {
   bbq,
   budougariBbq,
   gakusai3,
@@ -44,4 +45,6 @@ export const imageMap = {
   retoro,
   xmas3,
 } as const;
-export const images = Object.values(imageMap);
+export const IMAGES = Object.values(IMAGE_MAP);
+
+export const DEFAULT_POST_THUMBNAIL = defaultThumbnail;
