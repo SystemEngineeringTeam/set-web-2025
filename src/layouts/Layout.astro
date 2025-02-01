@@ -1,6 +1,7 @@
 ---
 import { PRELOAD_IMAGE_MAP } from '@/utils/images';
 import Header from '@/components/Header/index.astro';
+import Footer from '@/components/Footer/index.astro';
 import '@/styles/globals.scss';
 ---
 
@@ -14,11 +15,15 @@ import '@/styles/globals.scss';
     {Object.values(PRELOAD_IMAGE_MAP).map((value) => <link rel="preload" href={value} as="image" />)}
     <title>Astro Basics</title>
   </head>
+
   <body>
     <Header />
+
     <main>
       <slot />
     </main>
+
+    <Footer />
   </body>
 </html>
 

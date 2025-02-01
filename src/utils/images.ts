@@ -18,6 +18,7 @@ import halloween2 from '@/assets/top/halloween2.webp';
 import retoro from '@/assets/top/retoro.webp';
 import xmas3 from '@/assets/top/xmas3.webp';
 import defaultThumbnail from '@/assets/posts/default.webp';
+import syscat2 from '@/assets/syscat.webp';
 
 export const PRELOAD_IMAGE_MAP = {
   hero: '/public/hero.webp',
@@ -48,3 +49,5 @@ export const IMAGE_MAP = {
 export const IMAGES = Object.values(IMAGE_MAP);
 
 export const DEFAULT_POST_THUMBNAIL = defaultThumbnail;
+
+export const FOOTER_IMAGE = syscat2;

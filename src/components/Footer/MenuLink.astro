@@ -1,0 +1,27 @@
+---
+interface Props {
+  href: string;
+  text: string;
+  class?: string;
+}
+const { href, text, class: className, ...rest } = Astro.props;
+---
+
+<a href={href} class={className ?? ''} {...rest}>{text}</a>
+
+<style lang="scss">
+  a {
+    padding: 2px 5px 0;
+    font-size: 1rem;
+    cursor: pointer;
+    text-align: left;
+    display: block;
+    color: $primary-500;
+    text-decoration: none;
+    transition: color 0.3s;
+
+    &:hover {
+      color: $primary-300;
+    }
+  }
+</style>
