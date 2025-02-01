@@ -1,5 +1,7 @@
 ---
-import { heroSrc } from '@/utils/images';
+import { prelaodImageMap } from '@/utils/images';
+import Header from '@/components/Header/index.astro';
+import '@/styles/globals.scss';
 ---
 
 <!doctype html>
@@ -9,19 +11,25 @@ import { heroSrc } from '@/utils/images';
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
-    <link rel="preload" href={heroSrc} as="image" />
+    {Object.values(prelaodImageMap).map((value) => <link rel="preload" href={value} as="image" />)}
     <title>Astro Basics</title>
   </head>
   <body>
-    <slot />
+    <Header />
+    <main>
+      <slot />
+    </main>
   </body>
 </html>
 
-<style>
+<style lang="scss">
   html,
   body {
     margin: 0;
     width: 100%;
     height: 100%;
+  }
+  main {
+    padding-top: $header-height;
   }
 </style>

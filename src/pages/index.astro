@@ -3,7 +3,7 @@ import Render from '@/components/Render.astro';
 import Layout from '../layouts/Layout.astro';
 import { getCollection, render } from 'astro:content';
 import ImageSectino from '@/components/ImageSectino.astro';
-import { heroSrc } from '@/utils/images';
+import { prelaodImageMap } from '@/utils/images';
 
 const posts = await getCollection('pages');
 const page = posts.find((post) => post.data.tags.path === '');
@@ -15,7 +15,7 @@ const contents = page.body.split('---');
 
 <Layout>
   <h1>{page.data.title}</h1>
-  <ImageSectino src={heroSrc} />
+  <ImageSectino src={prelaodImageMap.hero} />
 
   {
     contents.map((content, i) => (

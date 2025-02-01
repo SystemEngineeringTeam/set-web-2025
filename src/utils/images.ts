@@ -18,7 +18,10 @@ import halloween2 from '@/assets/top/halloween2.webp';
 import retoro from '@/assets/top/retoro.webp';
 import xmas3 from '@/assets/top/xmas3.webp';
 
-export const heroSrc = '/public/hero.webp';
+export const prelaodImageMap = {
+  hero: '/public/hero.webp',
+  setIcon: '/public/set.webp',
+};
 
 export const imageMap = {
   bbq,

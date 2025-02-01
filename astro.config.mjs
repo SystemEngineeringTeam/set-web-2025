@@ -15,6 +15,15 @@ export default defineConfig({
     mdx(),
     sitemap()
   ],
+  vite: {
+    css: {
+      preprocessorOptions: {
+        scss: {
+          additionalData: `@use '@/styles/variables.scss' as *;`
+        }
+      }
+    }
+  },
   devToolbar: {
     enabled: false
   }

@@ -1,0 +1,62 @@
+---
+import { prelaodImageMap } from '@/utils/images';
+import MenuLink from './MenuLink.astro';
+import HambergerMenu from './HambergerMenu.astro';
+import { getPages } from '@/utils/pages';
+import { toPath } from '@/utils/path';
+
+const pages = await getPages(false);
+const displayPages = pages.filter((page) => !page.data.tags.other);
+---
+
+<header>
+  <a href="/" class="logo">
+    <img width="40" height="40" src={prelaodImageMap.setIcon} alt="logo" />
+  </a>
+
+  <MenuLink href="/" text="シス研" class="sysken" />
+  {displayPages.map((page) => <MenuLink href={toPath(page)} text={page.data.title} class="link" />)}
+
+  <span class="spacer"></span>
+
+  <HambergerMenu pages={pages} />
+</header>
+
+<style lang="scss">
+  header {
+    height: $header-height;
+    padding: 0 10px;
+    background-color: $primary-500;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    .link {
+      display: none;
+    }
+
+    @media (min-width: 600px) {
+      .sysken {
+        display: none;
+      }
+
+      .link {
+        display: block;
+      }
+    }
+
+    .logo {
+      width: 40px;
+      height: 40px;
+    }
+
+    .spacer {
+      margin-inline: auto;
+    }
+  }
+</style>
