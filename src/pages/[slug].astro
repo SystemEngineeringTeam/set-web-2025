@@ -1,0 +1,34 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { getCollection, render, type CollectionEntry } from 'astro:content';
+
+export async function getStaticPaths() {
+  const posts = await getCollection('pages');
+
+  return posts
+    .filter((post) => {
+      // トップページ と README は除外
+      if (post.data.tags.path === '') return false;
+      if (post.data.title === 'README') return false;
+      return true;
+    })
+    .map((post) => {
+      const title = post.data.title.toLowerCase();
+      const customPath = post.data.tags.path;
+      console.log(customPath || title);
+      return {
+        params: { slug: customPath ?? title },
+        props: post,
+      };
+    });
+}
+type Props = CollectionEntry<'pages'>;
+
+const post = Astro.props;
+const { Content } = await render(post);
+---
+
+<Layout>
+  <h1>{post.data.title}</h1>
+  <Content />
+</Layout>
