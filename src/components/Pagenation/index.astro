@@ -30,7 +30,7 @@ const visiblePageNums = pipe(null, () => {
   }
 
   {visiblePageNums.at(-1)! < pageNum - 1 && <span class="leader" />}
-  {visiblePageNums.at(-1)! < pageNum && <a href={getPagePath(1)}>{pageNum}</a>}
+  {visiblePageNums.at(-1)! < pageNum && <a href={getPagePath(pageNum)}>{pageNum}</a>}
 </div>
 
 <style lang="scss">
