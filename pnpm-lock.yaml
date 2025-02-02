@@ -14,9 +14,6 @@ importers:
       '@astrojs/sitemap':
         specifier: ^3.2.1
         version: 3.2.1
-      '@fontsource/zen-kaku-gothic-new':
-        specifier: ^5.1.1
-        version: 5.1.1
       astro:
         specifier: ^5.2.1
         version: 5.2.1(@types/node@18.19.74)(jiti@2.4.2)(rollup@4.32.1)(sass@1.83.4)(typescript@5.7.3)
@@ -38,7 +35,13 @@ importers:
       swiper:
         specifier: ^11.2.2
         version: 11.2.2
+      webfontloader:
+        specifier: ^1.6.28
+        version: 1.6.28
     devDependencies:
+      '@types/webfontloader':
+        specifier: ^1.6.38
+        version: 1.6.38
       axios:
         specifier: ^1.7.9
         version: 1.7.9
@@ -249,9 +252,6 @@ packages:
     engines: {node: '>=18'}
     cpu: [x64]
     os: [win32]
-
-  '@fontsource/zen-kaku-gothic-new@5.1.1':
-    resolution: {integrity: sha512-HudV9OxGnU2lhXsQdO1i480DnV8qqJBNKepCUuaoeGVUaAOTftyNy/ZbzwLps9cu7rj2oO8gOn+3qRzDlnhNpA==}
 
   '@img/sharp-darwin-arm64@0.33.5':
     resolution: {integrity: sha512-UT4p+iz/2H4twwAoLCqfA9UH5pI6DggwKEGuaPy7nCVQ8ZsiY5PIcrRvD1DzuY3qYL07NtIQcWnBSY/heikIFQ==}
@@ -630,6 +630,9 @@ packages:
 
   '@types/unist@3.0.3':
     resolution: {integrity: sha512-ko/gIFJRv177XgZsZcBwnqJN5x/Gien8qNOn0D5bQU/zAzVf9Zt3BlcUiLqhV9y4ARk0GbT3tnUiPNgnTXzc/Q==}
+
+  '@types/webfontloader@1.6.38':
+    resolution: {integrity: sha512-kUaF72Fv202suFx6yBrwXqeVRMx7hGtJTesyESZgn9sEPCUeDXm2p0SiyS1MTqW74nQP4p7JyrOCwZ7pNFns4w==}
 
   '@ungap/structured-clone@1.3.0':
     resolution: {integrity: sha512-WmoN8qaIAo7WTYWbAZuG8PYEhn5fkz7dZrqTBZ7dtt//lL2Gwms1IcnQ5yHqjDfX8Ft5j4YzDM23f87zBfDe9g==}
@@ -1850,6 +1853,9 @@ packages:
   web-namespaces@2.0.1:
     resolution: {integrity: sha512-bKr1DkiNa2krS7qxNtdrtHAmzuYGFQLiQ13TsorsdT6ULTkPLKuu5+GsFpDlg6JFjUTwX2DyhMPG2be8uPrqsQ==}
 
+  webfontloader@1.6.28:
+    resolution: {integrity: sha512-Egb0oFEga6f+nSgasH3E0M405Pzn6y3/9tOVanv/DLfa1YBIgcv90L18YyWnvXkRbIM17v5Kv6IT2N6g1x5tvQ==}
+
   which-pm-runs@1.1.0:
     resolution: {integrity: sha512-n1brCuqClxfFfq/Rb0ICg9giSZqCS+pLtccdag6C2HyufBrh3fBOiy9nb6ggRMvWOVH5GrdJskj5iGTZNxd7SA==}
     engines: {node: '>=4'}
@@ -2066,8 +2072,6 @@ snapshots:
 
   '@esbuild/win32-x64@0.24.2':
     optional: true
-
-  '@fontsource/zen-kaku-gothic-new@5.1.1': {}
 
   '@img/sharp-darwin-arm64@0.33.5':
     optionalDependencies:
@@ -2396,6 +2400,8 @@ snapshots:
   '@types/unist@2.0.11': {}
 
   '@types/unist@3.0.3': {}
+
+  '@types/webfontloader@1.6.38': {}
 
   '@ungap/structured-clone@1.3.0': {}
 
@@ -4085,6 +4091,8 @@ snapshots:
       vite: 6.0.11(@types/node@18.19.74)(jiti@2.4.2)(sass@1.83.4)
 
   web-namespaces@2.0.1: {}
+
+  webfontloader@1.6.28: {}
 
   which-pm-runs@1.1.0: {}
 

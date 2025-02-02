@@ -15,16 +15,17 @@
   "dependencies": {
     "@astrojs/mdx": "^4.0.8",
     "@astrojs/sitemap": "^3.2.1",
-    "@fontsource/zen-kaku-gothic-new": "^5.1.1",
     "astro": "^5.2.1",
     "astro-auto-import": "^0.4.4",
     "marked": "^15.0.6",
     "remeda": "^2.20.0",
     "sass": "^1.83.4",
     "sharp": "^0.33.5",
-    "swiper": "^11.2.2"
+    "swiper": "^11.2.2",
+    "webfontloader": "^1.6.28"
   },
   "devDependencies": {
+    "@types/webfontloader": "^1.6.38",
     "axios": "^1.7.9",
     "jiti": "^2.4.2",
     "prettier": "^3.4.2",
