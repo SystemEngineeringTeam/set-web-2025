@@ -18,8 +18,8 @@ const visiblePageNums = pipe(null, () => {
 ---
 
 <div class="pagenation">
-  <a href={getPagePath(1)} data-hide={visiblePageNums.at(0) === 1}>1</a>
-  <span class="leader" data-hide={visiblePageNums.at(0)! <= 2}></span>
+  {visiblePageNums.at(0)! > 1 && <a href={getPagePath(1)}>1</a>}
+  {visiblePageNums.at(0)! > 2 && <span class="leader" />}
 
   {
     visiblePageNums.map((n) => (
@@ -28,8 +28,9 @@ const visiblePageNums = pipe(null, () => {
       </a>
     ))
   }
-  <span class="leader" data-hide={visiblePageNums.at(-1)! >= pageNum - 1}></span>
-  <a href={getPagePath(1)} data-hide={visiblePageNums.at(-1) === pageNum}>{pageNum}</a>
+
+  {visiblePageNums.at(-1)! < pageNum - 1 && <span class="leader" />}
+  {visiblePageNums.at(-1)! < pageNum && <a href={getPagePath(1)}>{pageNum}</a>}
 </div>
 
 <style lang="scss">
@@ -89,11 +90,6 @@ const visiblePageNums = pipe(null, () => {
 
       &::after {
         right: -10px;
-      }
-
-      &[data-hide='true'] {
-        visibility: hidden;
-        display: contents;
       }
     }
   }
