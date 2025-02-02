@@ -10,7 +10,8 @@
     "format": "prettier -w .",
     "format:ci": "prettier -c .",
     "download": "jiti ./script/download.ts",
-    "convert": "jiti ./script/convert.ts"
+    "convert": "jiti ./script/convert.ts",
+    "resize": "source ./script/resize.sh"
   },
   "dependencies": {
     "@astrojs/mdx": "^4.0.8",
