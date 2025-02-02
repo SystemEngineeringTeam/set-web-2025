@@ -4,6 +4,7 @@ import MenuLink from './MenuLink.astro';
 import { toPath } from '@/utils/path';
 import { Image } from 'astro:assets';
 import { FOOTER_IMAGE } from '@/utils/images';
+import marmot from '@/assets/marmot.webp';
 
 const pages = await getPages();
 ---
@@ -16,7 +17,12 @@ const pages = await getPages();
   <div class="line"></div>
 
   <div class="syscat-container">
-    <Image src={FOOTER_IMAGE} alt="シスにゃん" />
+    <Image src={FOOTER_IMAGE} class="syscat" alt="シスにゃん" />
+
+    <div class="marmot-container">
+      <Image src={marmot} class="marmot" alt="会長代理" />
+      <p>仲間...!!</p>
+    </div>
   </div>
 
   <p class="copyright">SET © 2025 Copyright.</p>
@@ -53,9 +59,42 @@ const pages = await getPages();
       align-items: center;
       display: none;
 
-      img {
+      .syscat {
         width: 200px;
         height: 200px;
+        cursor: pointer;
+      }
+
+      .marmot-container {
+        height: 150px;
+        position: fixed;
+        transition: all 0.3s;
+        bottom: 0;
+        right: 15px;
+        transform: translateY(100%);
+
+        p {
+          width: 0;
+          color: $primary-500;
+          display: inline-block;
+          position: absolute;
+          top: -50px;
+          left: 10px;
+          overflow: hidden;
+          white-space: nowrap;
+        }
+      }
+
+      .syscat:hover + .marmot-container {
+        transform: translateY(0);
+
+        p {
+          animation-delay: 1s;
+          animation-name: typing;
+          animation-duration: 1s;
+          animation-timing-function: steps(8);
+          animation-fill-mode: forwards;
+        }
       }
     }
 
@@ -78,6 +117,15 @@ const pages = await getPages();
       .syscat-container {
         display: flex;
       }
+    }
+  }
+
+  @keyframes typing {
+    from {
+      width: 0;
+    }
+    to {
+      width: 100%;
     }
   }
 </style>
