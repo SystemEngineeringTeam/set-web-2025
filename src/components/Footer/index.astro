@@ -31,12 +31,8 @@ const pages = await getPages();
     grid-template-columns: 1fr;
     grid-template-rows: 1fr 29px;
 
-    @media (min-width: 600px) {
-      grid-template-columns: 1fr 1px 1fr;
-    }
-
     .menu {
-      padding: 30px 100px;
+      padding: 30px 30px 30px 100px;
 
       .link {
         line-height: 1.5rem;
@@ -49,16 +45,13 @@ const pages = await getPages();
       background-color: $primary-400;
       margin-block: auto;
       display: none;
-
-      @media (min-width: 600px) {
-        display: block;
-      }
     }
 
     .syscat-container {
       display: flex;
       justify-content: center;
       align-items: center;
+      display: none;
 
       img {
         width: 200px;
@@ -73,6 +66,18 @@ const pages = await getPages();
       grid-column: 1 / -1;
       line-height: 28px;
       border-top: 1px solid $primary-500;
+    }
+
+    @media (min-width: 600px) {
+      grid-template-columns: 1fr 1px 1fr;
+
+      .line {
+        display: block;
+      }
+
+      .syscat-container {
+        display: flex;
+      }
     }
   }
 </style>
