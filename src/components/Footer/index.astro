@@ -20,8 +20,11 @@ const pages = await getPages();
     <Image src={FOOTER_IMAGE} class="syscat" alt="シスにゃん" />
 
     <div class="marmot-container">
-      <Image src={marmot} class="marmot" alt="会長代理" />
-      <p>仲間...!!</p>
+      <a href="https://marmot-kawaii.net/" target="_blank" rel="noopener noreferrer">
+        <Image src={marmot} class="marmot" alt="会長代理" />
+      </a>
+      <p class="msg-nakama">仲間...!!</p>
+      <p class="msg-link">https://marmot-kawaii.net</p>
     </div>
   </div>
 
@@ -73,27 +76,59 @@ const pages = await getPages();
         right: 15px;
         transform: translateY(100%);
 
+        a {
+          display: contents;
+        }
+
         p {
           width: 0;
           color: $primary-500;
           display: inline-block;
           position: absolute;
           top: -50px;
-          left: 10px;
           overflow: hidden;
           white-space: nowrap;
+          display: none;
+
+          &.msg-nakama {
+            left: 10px;
+          }
+          &.msg-link {
+            right: 10px;
+          }
+        }
+      }
+
+      .syscat:hover + .marmot-container,
+      .marmot-container:hover {
+        transform: translateY(0);
+
+        p {
+          animation-fill-mode: forwards;
+
+          &.msg-nakama {
+            animation-delay: 1s;
+            animation-duration: 1s;
+            animation-timing-function: steps(8);
+            animation-name: typing-nakama;
+          }
+          &.msg-link {
+            animation-duration: 3s;
+            animation-timing-function: steps(25);
+            animation-name: typing-link;
+          }
         }
       }
 
       .syscat:hover + .marmot-container {
-        transform: translateY(0);
+        .msg-nakama {
+          display: block;
+        }
+      }
 
-        p {
-          animation-delay: 1s;
-          animation-name: typing;
-          animation-duration: 1s;
-          animation-timing-function: steps(8);
-          animation-fill-mode: forwards;
+      .marmot-container:hover {
+        .msg-link {
+          display: block;
         }
       }
     }
@@ -120,12 +155,20 @@ const pages = await getPages();
     }
   }
 
-  @keyframes typing {
+  @keyframes typing-nakama {
     from {
       width: 0;
     }
     to {
-      width: 100%;
+      width: 8ch;
+    }
+  }
+  @keyframes typing-link {
+    from {
+      width: 0;
+    }
+    to {
+      width: 25ch;
     }
   }
 </style>
