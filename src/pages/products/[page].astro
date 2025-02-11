@@ -31,7 +31,7 @@ const { page, pageNum, products } = Astro.props;
       {products.map((product) => <Card product={product} />)}
     </section>
 
-    <Pagenation page={page} pageNum={pageNum} getPagePath={(n) => `/posts/${n}`} />
+    <Pagenation page={page} pageNum={pageNum} getPagePath={(n) => `/products/${n}`} />
   </div>
 </Layout>
 
