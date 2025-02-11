@@ -18,7 +18,7 @@ const pageNum = Math.ceil(products.length / CONTENTS_NUM);
       {products.slice(0, CONTENTS_NUM).map((product) => <Card product={product} />)}
     </section>
 
-    <Pagenation page={1} pageNum={pageNum} getPagePath={(n) => `/posts/${n}`} />
+    <Pagenation page={1} pageNum={pageNum} getPagePath={(n) => `/products/${n}`} />
   </div>
 </Layout>
 
