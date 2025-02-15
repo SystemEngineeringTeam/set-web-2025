@@ -1,0 +1,97 @@
+---
+import Layout from '@/layouts/Layout.astro';
+---
+
+<Layout title="シス研標準時">
+  <div class="container">
+    <div class="center">
+      <h1>シス研標準時(SST)</h1>
+      <p class="description">
+        シス研標準時とは、システム工学研究室の部室内における標準時のことです。
+        授業開始時間に部室を出ても授業に間に合うように部室内は日本標準時よりも時間が進んでいます。
+      </p>
+      <p class="time_wrapper">
+        <span id="time">00:00:00</span>
+        <span>(UTC+0910)</span>
+      </p>
+    </div>
+  </div>
+
+  <div class="times">
+    <p>始業時間</p>
+    <p>06:00(SST)</p>
+
+    <p>1限目開始時間</p>
+    <p>09:00(SST)</p>
+
+    <p>2限目開始時間</p>
+    <p>10:40(SST)</p>
+
+    <p>3限目開始時間</p>
+    <p>13:00(SST)</p>
+
+    <p>4限目開始時間</p>
+    <p>14:40(SST)</p>
+
+    <p>5限目開始時間</p>
+    <p>16:20(SST)</p>
+
+    <p>6限目開始時間</p>
+    <p>18:10(SST)</p>
+
+    <p>定時</p>
+    <p>22:00(SST)</p>
+  </div>
+</Layout>
+
+<style lang="scss">
+  .container {
+    margin-inline: auto;
+    width: 100%;
+    max-width: 600px;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .center {
+      width: fit-content;
+      text-align: center;
+    }
+
+    h1 {
+      padding: 0 0 10px;
+      font-size: 1.4rem;
+    }
+
+    .time_wrapper {
+      padding: 50px 0;
+      font-size: 2rem;
+      font-weight: bold;
+    }
+  }
+
+  .times {
+    margin-inline: auto;
+    padding: 100px 0;
+    width: fit-content;
+    display: grid;
+    grid-template-columns: 120px 100px;
+    gap: 5px;
+  }
+</style>
+
+<script>
+  const time = document.getElementById('time');
+
+  setInterval(() => {
+    const now = new Date(Date.now() + 10 * 60 * 1000);
+    now.toLocaleString('ja-JP', { timeZone: 'Asia/Tokyo' });
+
+    const hour = now.getHours().toString().padStart(2, '0');
+    const minute = now.getMinutes().toString().padStart(2, '0');
+    const second = now.getSeconds().toString().padStart(2, '0');
+
+    if (time) time.textContent = `${hour}:${minute}:${second}`;
+  });
+</script>
