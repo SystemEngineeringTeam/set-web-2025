@@ -20,7 +20,10 @@ import ait from '@/assets/syshack/ait.webp';
 <Layout title="SysHack2025">
   <div class="container">
     <section class="top-section">
-      <Image src={syshack} alt="SysHack 2025" />
+      <div>
+        <Image src={syshack} alt="SysHack 2025" />
+        <p>本イベントは終了いたしました</p>
+      </div>
     </section>
 
     {/* お知らせ */}
@@ -483,18 +486,11 @@ import ait from '@/assets/syshack/ait.webp';
         class="register-button"
         style="text-decoration:0;"
         href="https://sysken.connpass.com/event/338966/"
-        target="_blank">SysHack2025 初陣の春に参加する</a
+        target="_blank"
       >
+        SysHack2025 初陣の春に参加する
+      </a>
     </section>
-
-    {/*  参加申し込み */}
-    <div class="register-box">
-      <h2 class="fw-bold border-bottom-0" style="font-size:2rem">
-        <a href="https://sysken.connpass.com/event/338966/" target="_blank" rel="noopener noreferrer">Register now</a>
-      </h2>
-      <p class="register-deadline red">参加締切:2025/2/11(火)</p>
-      <p class="register-here">参加申し込みは締め切りました</p>
-    </div>
   </div>
 </Layout>
 
@@ -579,7 +575,7 @@ import ait from '@/assets/syshack/ait.webp';
     }
 
     .top-section {
-      height: calc(95vh - 80px);
+      height: calc(100vh - 80px);
       display: flex;
       align-items: center;
 
@@ -587,6 +583,12 @@ import ait from '@/assets/syshack/ait.webp';
         height: auto;
         width: 100%;
         border-radius: 10px;
+      }
+
+      p {
+        text-align: center;
+        font-weight: bold;
+        font-size: 2rem;
       }
     }
 
@@ -833,10 +835,7 @@ import ait from '@/assets/syshack/ait.webp';
         padding: 1rem;
         border-radius: 1rem;
         background-color: #fada7a;
-      }
-
-      .register-button:hover {
-        scale: 1.1;
+        cursor: initial;
       }
     }
 
