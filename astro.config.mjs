@@ -9,23 +9,21 @@ export default defineConfig({
   site: 'https://sysken.net',
   integrations: [
     AutoImport({
-      imports: [
-        '@components/ImageSectino.astro',
-      ],
+      imports: ['@components/ImageSectino.astro'],
     }),
     mdx(),
-    sitemap()
+    sitemap(),
   ],
   vite: {
     css: {
       preprocessorOptions: {
         scss: {
-          additionalData: `@use '@/styles/variables.scss' as *;`
-        }
-      }
-    }
+          additionalData: `@use '@/styles/variables.scss' as *;`,
+        },
+      },
+    },
   },
   devToolbar: {
-    enabled: false
-  }
+    enabled: false,
+  },
 });

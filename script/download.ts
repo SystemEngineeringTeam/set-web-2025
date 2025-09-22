@@ -37,9 +37,7 @@ function getFileId(filePath: string): string {
  * @return ディレクトリの一覧
  */
 function getDirectories(filePath: string) {
-  return fs
-    .readdirSync(filePath)
-    .filter((file) => fs.statSync(path.join(filePath, file)).isDirectory());
+  return fs.readdirSync(filePath).filter((file) => fs.statSync(path.join(filePath, file)).isDirectory());
 }
 
 /*
@@ -107,9 +105,7 @@ function saveAndReplaceImages(content: string, fileId: string): string {
     // 画像を保存して、画像のパスを取得
     void saveImage(imageUrl, fileId);
 
-    const imageSrc = path
-      .join(IMAGE_DIR, fileId, getFileNameFromURL(imageUrl))
-      .replace('public', '');
+    const imageSrc = path.join(IMAGE_DIR, fileId, getFileNameFromURL(imageUrl)).replace('public', '');
 
     // 画像のURLを置換
     if (imageSrc) content = content.replace(imageUrl, imageSrc);
