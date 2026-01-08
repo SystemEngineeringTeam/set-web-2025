@@ -4,8 +4,8 @@ import bbg3 from '@/assets/top/bbq3.jpg';
 import begginershack1 from '@/assets/top/begginershack1.png';
 import begginershack2 from '@/assets/top/begginershack2.jpg';
 import benkyokai from '@/assets/top/benkyokai.png';
-import bowling from '@/assets/top/bowling.jpg';
-import soukai from '@/assets/top/soukai.jpg';
+import bowling from '@/assets/top/bowling.JPG';
+import soukai from '@/assets/top/soukai.JPG';
 import syscat from '@/assets/top/syscat.png';
 import undokai1 from '@/assets/top/undokai1.jpg';
 
