@@ -2,27 +2,23 @@
 import Layout from '@/layouts/Layout.astro';
 import { Image } from 'astro:assets';
 import code from '@/assets/syshack/code.svg';
-import hackhack from '@/assets/syshack/hackhack.svg';
 import jack from '@/assets/syshack/jack.png';
-import mix3r from '@/assets/syshack/mix3r.svg';
-import nkcug from '@/assets/syshack/nkcug.svg';
-import sazanami from '@/assets/syshack/sazanami_dev.svg';
-import tair from '@/assets/syshack/tair.png';
 import jougiken from '@/assets/syshack/jougiken.svg';
-import stech from '@/assets/syshack/stech.jpg';
-import syshack from '@/assets/syshack/syshack.webp';
+import syshack from '@/assets/syshack/syshack2026_thumbnail.png';
 import cyberagent from '@/assets/syshack/cyberagent.webp';
-import nxtend from '@/assets/syshack/nxtend.svg';
 import techtrain from '@/assets/syshack/techtrain.svg';
 import ait from '@/assets/syshack/ait.webp';
+import terminal from '@/assets/syshack/terminal.svg';
+import dmm from '@/assets/syshack/dmm_com.png';
+import churadata from '@/assets/syshack/churadata.png';
+import dip from '@/assets/syshack/dip.png';
 ---
 
 <Layout title="SysHack2026">
   <div class="container">
     <section class="top-section">
       <div>
-        <!-- <Image src={syshack} alt="SysHack 2026" /> -->
-        <p>SysHack 2026 is Coming Soon...</p>
+        <Image src={syshack} alt="SysHack 2026" />
       </div>
     </section>
 
@@ -31,88 +27,78 @@ import ait from '@/assets/syshack/ait.webp';
       <a class="text-primary" href="/syshack2025" rel="noopener noreferrer">SysHack2025のページはこちら</a>
     </section>
 
-    <!-- {/* お知らせ */}
+    {/* お知らせ */}
     <section class="notice-section">
-      <h2>NOTICE</h2>
+      <h2>お知らせ🔔</h2>
 
       <div class="notice-textbox">
         <div class="border border-primary border-2 border-start-0 border-end-0 mb-4">
-          <h3 class="text-center pt-2">SysHack 特別勉強会のご案内</h3>
+          <h3 class="text-center pt-2">SysHack 勉強会のご案内</h3>
           <p class="p-2">
-            SysHackでは、参加者のスキルアップを応援する特別勉強会をオンライン（Zoom,Discord）で開催します！
-            誰でも参加可能な説明会や、参加者限定の勉強会をご用意しています。
+            SysHackでは、参加者のスキルアップを応援する勉強会をオンライン（Discord）で開催します！
+            参加者なら誰でも参加可能な勉強会をご用意しています。
           </p>
         </div>
 
         <div class="accordion">
-          {/*  誰でも参加可能 */}
           <div>
-            <input type="checkbox" class="accordion-checkbox" id="accordion-everyone" />
-            <label class="accordion-title" for="accordion-everyone">誰でも参加可能▽</label>
             <div class="accordion-content">
-              <div>
-                <h5>SysHack説明会</h5>
-                <ul>
-                  <li>日時: 1月16日（木）18:00〜19:00</li>
-                  <li>内容: SysHackの概要や参加方法について詳しく説明します。</li>
-                  <li>
-                    Zoom情報:
-                    <ul>
-                      <li>
-                        ミーティングリンク:
-                        <a
-                          href="https://us05web.zoom.us/j/89736763962?pwd=wWbuMqM6ocAO3fKDorNavabzPgiFDn.1"
-                          target="_blank"
-                          rel="noopener noreferrer"
-                        >
-                          クリック
-                        </a>
-                      </li>
-                      <li>ミーティング ID: 897 3676 3962</li>
-                      <li>パスコード: 1W1fWN</li>
-                    </ul>
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </div>
-
-          {/*  参加者限定 */}
-          <div>
-            <input type="checkbox" id="accordion-members" class="accordion-checkbox" />
-            <label for="accordion-members" class="accordion-title">参加者限定▽</label>
-            <div class="accordion-content">
-              <h4 class="red">Discordの参加方法は後日メールにてお送りいたします</h4>
+              <h4 class="red">Discordの参加方法は後日Slackにてご連絡します</h4>
 
               <div>
-                <h5>アイデア出しワークショップ</h5>
+                <h5>Webフロント勉強会</h5>
                 <ul>
-                  <li>日時: 2月12日（木）18:30〜19:30</li>
-                  <li>内容: アイデア発想のコツを学び、ハッカソンの準備を進めるためのワークショップです。</li>
+                  <li>日時: 2/17(火) 14:00 ~ 16:00, 2/18(水) 14:00 ~ 16:00</li>
+                  <li>内容: Web開発の基礎を学び、ハッカソンで活用できるスキルを身につけます。</li>
                 </ul>
               </div>
 
               <div>
-                <h5>モバイル勉強会</h5>
+                <h5>Android勉強会</h5>
                 <ul>
-                  <li>日時: 2月25日（火）〜26日（水）14:00〜18:00（予定）</li>
-                  <li>内容: モバイルアプリ制作の基礎を学べます。</li>
+                  <li>日時: 2/25(水) 14:00 ~ 16:00</li>
+                  <li>内容: Androidアプリの制作のための基礎を学べます｡</li>
+                </ul>
+              </div>
+
+              <div>
+                <h5>バックエンド勉強会</h5>
+                <ul>
+                  <li>日時: 3/2(月) 14:00 ~ 16:00, 3/3(火) 14:00 ~ 16:00</li>
+                  <li>内容: バックエンドを構築するための基礎を学べます｡</li>
+                </ul>
+              </div>
+
+              <div>
+                <h5>GitHub勉強会</h5>
+                <ul>
+                  <li>日時: 3/4(火) 14:00 ~ 16:00</li>
+                  <li>内容: チーム開発やプロジェクト管理に役立つGit,GitHubについての基礎を学べます。</li>
                 </ul>
               </div>
 
               <div>
                 <h5>Unity勉強会</h5>
                 <ul>
-                  <li>日時: 2月27日（木）〜28日（金）14:00〜16:00（予定）</li>
-                  <li>内容: 初心者向けにUnityを使った開発の基本を学べます。</li>
+                  <li>日時: 3/11(水) 14:00 ~ 17:00</li>
+                  <li>内容: ゲーム開発に必要な基礎を学べます。</li>
                 </ul>
               </div>
+            </div>
 
+            <div class="accordion-content">
               <div>
-                <h5>Webフロント勉強会</h5>
+                <h5>アイデア出しサポート</h5>
                 <ul>
-                  <li>日時: 3月8日（土）〜9日（日）14:00〜17:00（予定）</li>
-                  <li>内容: Web開発の基礎を学び、ハッカソンで活用できるスキルを身につけます。</li>
+                  <li>日時: 3/18 (火) 〜 20 (木) 15:00 ~ 23:00</li>
+                  <li>場所: Discord</li>
+                  <li>
+                    内容:
+                    初めてのハッカソンで何を作ればいいのかわからない方に向けに､運営陣がDiscordに常駐していますので､お気軽にご相談ください
+                    💪
+                    <br />
+                    作るものが思いつかない､アイデアは思いついたけど賞が取れるか不安､やりたいことが技術的に可能かわからないなど、何でもご相談ください｡
+                  </li>
                 </ul>
               </div>
             </div>
@@ -124,15 +110,15 @@ import ait from '@/assets/syshack/ait.webp';
 
     {/* 概要 */}
     <section class="overview-section">
-      <h2>What is SysHack?</h2>
+      <h2>SysHackとは？</h2>
 
       <div>
         <h3>SysHack : 学生エンジニアのための挑戦の場</h3>
 
         <p>
-          SysHackは、愛知県にある愛知工業大学の学生エンジニア団体「システム工学研究会」が主催する、学生向けのハッカソンです
+          SysHackは、愛知県にある愛知工業大学の学生エンジニア団体「システム工学研究会」が主催する、学生向けのハッカソンです。学生向けのハッカソンです。
         </p>
-        <p>これまで、多くのハッカソンには以下のような「<span class="red">壁</span>」が存在していました。</p>
+        <p>こんなふうに感じたことはありませんか？</p>
 
         <ul>
           <li>初心者向けのハッカソンが少なく、最初の一歩を踏み出しにくい。</li>
@@ -140,13 +126,13 @@ import ait from '@/assets/syshack/ait.webp';
           <li>技術選定やテーマに沿ったアイデアを考える際、周囲の視線や審査員の評価を気にしてしまう。</li>
         </ul>
 
-        <p>その結果、「やってみたい」という初心者の意欲が埋もれてしまうことも少なくありません。</p>
-        <p>SysHackはそんな「壁」を乗り越えるために、以下の特徴を備えています。</p>
+        <p>そんな方におすすめのイベントです！</p>
+        <p>SysHackは「初心者の挑戦の場」として、以下の特徴を備えています！</p>
         <ul>
           <li>
             独自の評価基準で作品愛を評価！ 技術力だけでなく、参加者がどれだけ自分の作品に情熱を注いだかを重視します。
           </li>
-          <li>初心者がメイン！ 参加者の多くは大学1・2年生（B1・B2）。初めてのハッカソン参加にピッタリの環境です。</li>
+          <li>昨年度の参加者は大学1・2年生（B1・B2）のみでした。初めてのハッカソン参加にピッタリの環境です。</li>
           <li>すべて学生による運営！ 同じ学生目線で、参加者が安心して挑戦できるイベントを提供します。</li>
         </ul>
 
@@ -156,47 +142,41 @@ import ait from '@/assets/syshack/ait.webp';
       </div>
     </section>
 
-    {/*  スポンサー */}
+    {/*  企業 */}
     <section class="sponsor-section">
-      <h2>Sponsors</h2>
+      <h2>協力企業・学生団体(順不同)</h2>
 
-      <p>SysHackは以下のスポンサー様にご支援をいただいています</p>
+      <p>SysHackは以下の企業様にご支援をいただいています</p>
 
       <div class="sponsor-list">
         <div>
-          <img alt="CyberAgent様" src={cyberagent.src} />
-          <p>CyberAgent様</p>
-        </div>
-
-        <div>
-          <img alt="NxTEND様" src={nxtend.src} />
-          <p>NxTEND様</p>
-        </div>
-
-        <div>
           <img alt="TechTrain様" src={techtrain.src} />
-          <p>TechTrain様</p>
+          <p>株式会社TechBowl様</p>
         </div>
-      </div>
 
-      <p>スポンサー企業は<wbr />増える可能性があります🔥</p>
-    </section>
+        <div>
+          <img alt="CyberAgent様" src={cyberagent.src} />
+          <p>株式会社サイバーエージェント様</p>
+        </div>
 
-    {/*  協力団体 */}
-    <section class="cooperatingorg-section">
-      <h2>Cooperating organizations</h2>
+        <div>
+          <img alt="合同会社DMM.com様" src={dmm.src} />
+          <p>合同会社DMM.com様</p>
+        </div>
 
-      <p>SysHackは以下の団体様にご支援をいただいています</p>
+        <div>
+          <img alt="ちゅらデータ様" src={churadata.src} />
+          <p>ちゅらデータ株式会社様</p>
+        </div>
 
-      <div class="orgs">
+        <div>
+          <img alt="ディップ株式会社" src={dip.src} />
+          <p>ディップ株式会社</p>
+        </div>
+
         <div class="org">
           <img alt="C0de様" src={code.src} />
           <p class="mt-3">C0de様</p>
-        </div>
-
-        <div class="org">
-          <img alt="hackhack様" src={hackhack.src} />
-          <p class="mt-3">hackhack様</p>
         </div>
 
         <div class="org">
@@ -205,673 +185,754 @@ import ait from '@/assets/syshack/ait.webp';
         </div>
 
         <div class="org">
-          <img alt="Mix3r様" src={mix3r.src} />
-          <p class="mt-3">Mix3r様</p>
+          <img alt="情報技術研究会様" src={jougiken.src} />
+          <p class="mt-3">情報技術研究会様</p>
         </div>
 
         <div class="org">
-          <img alt="NKC-UG様" src={nkcug.src} />
-          <p class="mt-3">NKC-UG様</p>
+          <img alt="Terminal" src={terminal.src} />
+          <p class="mt-3">Terminal様</p>
         </div>
 
-        <div class="org">
-          <img alt="さざなみ開発様" src={sazanami.src} />
-          <p class="mt-3">さざなみ開発様</p>
-        </div>
-
-        <div class="org">
-          <img alt="TAIR様" src={tair.src} />
-          <p class="mt-3">TAIR様</p>
-        </div>
-
-        <div class="org">
-          <img alt="名城大学 情報技術研究会様" src={jougiken.src} />
-          <p class="mt-3">名城大学情報技術研究会様</p>
-        </div>
-
-        <div class="org">
-          <img alt="STECH様" src={stech.src} />
-          <p class="mt-3">STECH様</p>
-        </div>
+        <p>協力企業・学生団体は<wbr />増える可能性があります🔥</p>
       </div>
 
-      <p>協力団体は増える可能性があります🔥</p>
-    </section>
+      {/*  賞 */}
+      <section class="award-section">
+        <h2>賞について</h2>
 
-    {/*  賞 */}
-    <section class="award-section">
-      <h2>Awards</h2>
+        <h4>総合賞</h4>
+        <ul>
+          <li>最優秀賞</li>
+        </ul>
 
-      <h4>総合賞</h4>
-      <ul>
-        <li>最優秀賞</li>
-      </ul>
+        <h4>企業・学生団体賞</h4>
+        <ul>
+          <li>TechTrain賞</li>
+          <li>CyberAgent賞</li>
+          <li>DMM.com賞</li>
+          <li>ちゅらデータ賞</li>
+          <li>ディップ賞</li>
+          <li>C0de賞</li>
+          <li>jack賞</li>
+          <li>情報技術研究会賞</li>
+        </ul>
 
-      <h4>企業賞</h4>
-      <ul>
-        <li>CyberAgent賞</li>
-        <li>NxTEND賞</li>
-        <li>TechTrain賞</li>
-      </ul>
+        <p>
+          賞の内容は当日発表予定です。
+          <br />
+          現在も協力企業・学生団体様を募集中のため<wbr />追加される可能性がございます🔥
+        </p>
+      </section>
 
-      <h4>団体賞</h4>
-      <ul>
-        <li>シス研賞</li>
-        <li>C0de賞</li>
-        <li>hack hack賞</li>
-        <li>STECH賞</li>
-      </ul>
+      {/* 評価基準 */}
+      <section>
+        <h2>評価基準</h2>
+        <p>審査では, 次の項目を 5 点満点で評価し, 合計点の高い順に順位を決定いたします.</p>
 
-      <p>
-        現在もスポンサー様を募集中のため<wbr />追加される可能性がございます🔥
-      </p>
-    </section>
+        <ul>
+          <li>作品愛: チームが示した独自性や着想, 作品の魅力(“推しポイント”)</li>
+          <li>技術的挑戦: チームが取り組んだ技術的な難易度や新規性, 問題解決の工夫</li>
+          <li>サービス価値: 実際の利用における有用性, あるいは利用者に提供する面白さや価値</li>
+          <li>完成度: 機能の実装状況や安定性, ユーザー体験(操作性・デザイン)の完成度</li>
+        </ul>
+        <p>以上の観点から<wbr />作品を評価させていただきます🔥</p>
+      </section>
 
-    {/* 評価基準　*/}
-    <section>
-      <h2>Criteria</h2>
+      {/*  参加申し込み */}
+      <section class="about-registration-section">
+        <h2>参加申し込み</h2>
 
-      <ul>
-        <li>こだわり: 創意工夫, 推しポイント</li>
-        <li>技術的な挑戦: 当人にとっての挑戦をしているか</li>
-        <li>サービスとしての価値: 役に立つor面白いものになっているか</li>
-        <li>サービスの完成度: サービスとしての完成度、機能の実装度、UI/UX</li>
-      </ul>
-      <p>以上の観点から<wbr />作品を評価させていただきます🔥</p>
-    </section>
+        <h4>チーム参加</h4>
 
-    {/*  参加申し込み */}
-    <section class="about-registration-section">
-      <h2>About registration</h2>
+        <ul>
+          <li>1チーム 3〜5人です。 connpassで参加申し込みをお願いいたします。メンバー全員必須となります。</li>
+          <li>申し込み後に必ず専用Slackにご参加ください。</li>
+          <li>チャンネルに記載されているチーム登録フォームから、チーム登録をお願いいたします。</li>
+        </ul>
 
-      <h4>チーム参加</h4>
-      <p>
-        1チーム 3 ~ 5人です。 Connpassで参加申し込みをお願いいたします。(メンバー全員必須となります)
-        申し込み時に入力いただいたメールアドレスにチーム登録フォームを送信いたします。
-        チームの代表者1名がチーム登録フォームにて、チーム登録をお願いいたします。
-      </p>
+        <h4>個人参加</h4>
+        <p>※個人参加の場合、運営でチーム決定をさせていただきます。</p>
 
-      <h4>個人参加</h4>
-      <p>
-        Connpassで参加申し込みをお願いいたします。運営にてチームを構成します。申込時に入力していただいたメールアドレスに対して、チームを組む際に参考にさせていただくアンケートを後日送信するのでご回答をお願いいたします。キックオフの3月17日(月)に決定したチームを発表いたします。
-      </p>
-      <p class="comment">個人参加の場合、運営でチーム決定をさせていただきます。</p>
-    </section>
+        <ul>
+          <li>1チーム 3〜5人です。 connpassで参加申し込みをお願いいたします。</li>
+          <li>申し込み後に必ず専用Slackにご参加ください。</li>
+          <li>
+            チャンネルに記載されているチーム登録フォームから、個人参加の旨をご記入の上、チーム決定フォームを提出してください。
+          </li>
+          <li>チームが確定しましたら、Slack内でご確認の程よろしくお願いいたします。</li>
+        </ul>
+      </section>
 
-    {/*  参加資格 */}
-    <section class="entry-qualification-section">
-      <h2>Entry qualifications</h2>
-      <h4>対象</h4>
-      <ul>
-        <li>大学、専門学校問わず学生である方は参加資格を有します</li>
-      </ul>
-      <h4>歓迎</h4>
-      <ul>
-        <li>積極的にチームで活動できる方</li>
-        <li>新しい技術を学ぶ意欲がある方</li>
-        <li>他のメンバーと協力して成果を出したい方</li>
-      </ul>
+      {/*  参加資格 */}
+      <section class="entry-qualification-section">
+        <h2>参加資格</h2>
+        <h4>対象</h4>
+        <ul>
+          <li>ハッカソン参加経験2回以下</li>
+          <li>エンジニア歴2年未満</li>
+        </ul>
 
-      <h4>禁止</h4>
-      <ul>
-        <li>他ハッカソンで賞を取ったメンバー同士でチームを構成すること</li>
-        <li>発表日(3月31日)に出席できない方</li>
-      </ul>
+        <p>愛知工業大学やシステム工学研究会に所属していない方でも参加可能です🔥</p>
 
-      <p>
-        参加条件に関してわからないことがあれば
-        <a class="link-offset-2" href="https://x.com/set_official" target="_blank" rel="noopener noreferrer">公式X</a>か
-        <a class="link-offset-2" href="https://www.instagram.com/ait.sysken/" target="_blank" rel="noopener noreferrer"
-          >公式Instagram</a
+    
+        <p>
+          上記の条件を満たしていない方でも、<b>チームの中で1名のみ参加可能となっております。</b>
+          <wbr />
+なお、初心者向けのハッカソンとなっておりますので常識範囲内のご配慮をお願いいたします。
+</p>
+        <p>
+          その他、参加要件を満たしていないと判断した場合は、誠に恐れ入りますが参加をご遠慮ください。
+          <br />
+          なお、メンター枠をご用意しておりますので、よろしければそちらでのご参加をご検討ください。
+        </p>
+
+        <p>
+          参加条件に関してわからないことがあれば
+          <a class="link-offset-2" href="https://x.com/set_official" target="_blank" rel="noopener noreferrer">公式X</a
+          >または
+          <a
+            class="link-offset-2"
+            href="https://www.instagram.com/ait.sysken/"
+            target="_blank"
+            rel="noopener noreferrer">公式Instagram</a
+          >
+          のDM等でご連絡ください🔥
+        </p>
+
+        <p class="comment">
+          ※ キックオフの参加が難しい場合は、運営までご相談ください。
+          <br />
+          ※ 違反が発覚した場合、チームメンバー全員は参加を辞退していただきます。
+        </p>
+      </section>
+
+      <section class="question-section">
+        <h2>よくある質問</h2>
+        <h4>Q. 以前に作成したプロダクトで参加することは可能ですか？</h4>
+        <p>A. 不可となります。開発期間中に制作したものに限ります。</p>
+        
+        <h4>Q. 開発テーマはいつ発表されますか？</h4>
+        <p>A. テーマはありません。プログラミングを用いたものであれば、なんでも大丈夫です。</p>
+        
+        <h4>Q. ハッカソン経験が浅く、自信がないのですが大丈夫ですか？</h4>
+        <p>A. 大丈夫です！メンターが複数人いますので、安心してご参加ください。</p>
+        
+        <h4>Q. 昼食はでるのでしょうか？</h4>
+        <p>A. 昼食のご用意はありませんので、持ってきていただくか、構内のコンビニをご利用ください。</p>
+
+      </section>
+
+      {/* 開催場所 */}
+      <section class="location-section">
+        <h2>開催場所</h2>
+
+        <div class="location">
+          <div class="location-img">
+            <Image src={ait} alt="愛知工業大学" />
+          </div>
+
+          <div class="location-text">
+            <h3 class="title">会場</h3>
+            <p class="name">愛知工業大学 八草キャンパス</p>
+            <p class="address">〒470-0356 愛知県豊田市八草町八千草１２４７</p>
+          </div>
+        </div>
+
+        <p>開催場所は変更する可能性がございます</p>
+      </section>
+
+      {/*  スケジュール */}
+      <section>
+        <h2>スケジュール</h2>
+        <table>
+          <thead>
+            <tr>
+              <th scope="col">月日</th>
+              <th scope="col">イベント</th>
+              <th scope="col">場所</th>
+            </tr>
+          </thead>
+
+          <tbody>
+            <tr>
+              <td>2026年3月8日(日)</td>
+              <td>参加締切･チーム決定フォーム提出締切</td>
+              <td>-</td>
+            </tr>
+            <tr>
+              <td>2026年3月17日(火)</td>
+              <td>キックオフ</td>
+              <td>オンライン…Zoom、オフライン…愛知工業大学</td>
+            </tr>
+            <tr>
+              <td>↓</td>
+              <td>開発期間</td>
+              <td>-</td>
+            </tr>
+            <tr>
+              <td>2026年3月31日(火)</td>
+              <td>発表会・懇親会</td>
+              <td>現地／愛知工業大学</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+
+      {/*  タイムテーブル */}
+      <section class="event-timetable-section">
+        <h2>タイムテーブル</h2>
+
+        <h4>キックオフ(オンライン可)<span class="date">3月17日(火)</span></h4>
+        <table>
+          <thead>
+            <tr>
+              <th>時間</th>
+              <th>内容</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>17:00</td>
+              <td>参加者受付開始</td>
+            </tr>
+            <tr>
+              <td>17:45</td>
+              <td>オンライン開場</td>
+            </tr>
+            <tr>
+              <td>18:00</td>
+              <td>開会挨拶・イベント概要説明</td>
+            </tr>
+            <tr>
+              <td>18:10</td>
+              <td>ルール・評価基準説明</td>
+            </tr>
+            <tr>
+              <td>18:20</td>
+              <td>スポンサー紹介</td>
+            </tr>
+            <tr>
+              <td>18:30</td>
+              <td>チーム編成・自己紹介</td>
+            </tr>
+            <tr>
+              <td>19:00</td>
+              <td>キックオフ終了・zoom 閉場</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <h4>プレゼンテーション日 (現地のみ)<span class="date">3月31日(火)</span></h4>
+        <table>
+          <thead>
+            <tr>
+              <th>時間</th>
+              <th>内容</th>
+              <th>参加者</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>10:00</td>
+              <td>受付開始</td>
+              <td>追い込み開発開始</td>
+            </tr>
+            <tr>
+              <td>12:15</td>
+              <td>受付終了</td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>12:30</td>
+              <td>開会挨拶</td>
+              <td>追い込み開発終了</td>
+            </tr>
+            <tr>
+              <td>12:50</td>
+              <td>発表ルール説明</td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>13:00</td>
+              <td>発表進行（1チーム3分）</td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>(13:45)</td>
+              <td>中間休憩(10分程度)</td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>14:30</td>
+              <td>発表終了</td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>----</td>
+              <td>休憩・展示準備</td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>14:50</td>
+              <td>Aチーム展示開始</td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>15:00</td>
+              <td></td>
+              <td>Aチーム交流開始</td>
+            </tr>
+            <tr>
+              <td>15:30</td>
+              <td>Aチーム展示終了・Bチーム展示準備開始</td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>15:50</td>
+              <td>Bチーム展示開始</td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>16:00</td>
+              <td></td>
+              <td>Bチーム交流開始</td>
+            </tr>
+            <tr>
+              <td>16:30</td>
+              <td>Bチーム展示終了</td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>16:45</td>
+              <td>企業説明開始</td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>17:45</td>
+              <td>企業団体説明終了(1つ3分)</td>
+              <td>投票タイム開始</td>
+            </tr>
+            <tr>
+              <td>18:15</td>
+              <td></td>
+              <td>投票タイム終了</td>
+            </tr>
+            <tr>
+              <td>18:25</td>
+              <td></td>
+              <td>懇親会開始</td>
+            </tr>
+            <tr>
+              <td>18:55</td>
+              <td>結果発表・表彰式</td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>19:30</td>
+              <td>閉会挨拶</td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>19:50</td>
+              <td>写真撮影</td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>20:00</td>
+              <td>閉場</td>
+              <td></td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="register-section">
+        <!-- <p class="red">参加申し込みは締め切りました</p> -->
+        <a
+          class="register-button"
+          style="text-decoration:0;"
+          href="https://sysken.connpass.com/event/372782/"
+          target="_blank"
         >
-        のDM等で連絡をお願いします🔥
-      </p>
-
-      <p class="comment">
-        現在メンターを募集しています！！<br />メンターに興味がある方はメンター枠での参加をお願いします
-      </p>
+          SysHack2026 に参加する
+        </a>
+      </section>
     </section>
-
-    {/* 開催場所　*/}
-    <section class="location-section">
-      <h2>Location</h2>
-
-      <div class="location">
-        <div class="location-img">
-          <Image src={ait} alt="愛知工業大学" />
-        </div>
-
-        <div class="location-text">
-          <h3 class="title">会場</h3>
-          <p class="name">愛知工業大学 八草キャンパス</p>
-          <p class="address">〒470-0356 愛知県豊田市八草町八千草１２４７</p>
-        </div>
-      </div>
-
-      <p>開催場所は変更する可能性がございます</p>
-    </section>
-
-    {/*  スケジュール */}
-    <section>
-      <h2>Schedule</h2>
-      <table>
-        <thead>
-          <tr>
-            <th scope="col">月日</th>
-            <th scope="col">イベント</th>
-            <th scope="col">場所</th>
-          </tr>
-        </thead>
-
-        <tbody>
-          <tr>
-            <td>2026年2月11日(火)</td>
-            <td>参加締切</td>
-            <td>-</td>
-          </tr>
-          <tr>
-            <td>2026年3月17日(月)</td>
-            <td>キックオフ</td>
-            <td>オンライン…Zoom、オフライン…愛知工業大学</td>
-          </tr>
-          <tr>
-            <td>↓</td>
-            <td>開発期間</td>
-            <td>-</td>
-          </tr>
-          <tr>
-            <td>2026年3月31日(月)</td>
-            <td>発表会・懇親会</td>
-            <td>対面／愛知工業大学</td>
-          </tr>
-        </tbody>
-      </table>
-    </section>
-
-    {/*  イベントタイムテーブル */}
-    <section class="event-timetable-section">
-      <h2>Event timetable</h2>
-
-      <h4>KICK OFF<span class="date">3月17日(月)</span></h4>
-      <table>
-        <thead>
-          <tr>
-            <th>時間</th>
-            <th>内容</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>17:00</td>
-            <td>現地開場</td>
-          </tr>
-          <tr>
-            <td>17:45</td>
-            <td>Discord OPEN</td>
-          </tr>
-          <tr>
-            <td>18:00</td>
-            <td>オープニング</td>
-          </tr>
-          <tr>
-            <td>18:30</td>
-            <td>チーム紹介(1チーム30秒紹介タイム)</td>
-          </tr>
-          <tr>
-            <td>19:00</td>
-            <td>Discord CLOSE</td>
-          </tr>
-          <tr>
-            <td>20:00</td>
-            <td>現地閉場</td>
-          </tr>
-        </tbody>
-      </table>
-
-      <h4>Presentation<span class="date">3月31日(月)</span></h4>
-      <table>
-        <thead>
-          <tr>
-            <th>時間</th>
-            <th>内容</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>10:00</td>
-            <td>現地開場(メンターのサポートを受けれられます)</td>
-          </tr>
-          <tr>
-            <td>13:00</td>
-            <td>SysHack開幕</td>
-          </tr>
-          <tr>
-            <td>13:30</td>
-            <td>発表開始(1チーム3分)</td>
-          </tr>
-          <tr>
-            <td>15:30</td>
-            <td>ブース展示開始</td>
-          </tr>
-          <tr>
-            <td>17:00</td>
-            <td>ブース展示終了</td>
-          </tr>
-          <tr>
-            <td>17:10</td>
-            <td>投票タイム</td>
-          </tr>
-          <tr>
-            <td>17:30</td>
-            <td>スポンサータイム</td>
-          </tr>
-          <tr>
-            <td>18:00</td>
-            <td>懇親会開始</td>
-          </tr>
-          <tr>
-            <td>18:30</td>
-            <td>賞発表</td>
-          </tr>
-          <tr>
-            <td>19:00</td>
-            <td>SysHack閉幕</td>
-          </tr>
-          <tr>
-            <td>20:00</td>
-            <td>現地閉場</td>
-          </tr>
-        </tbody>
-      </table>
-    </section>
-
-    <section class="register-section">
-      <p class="red">参加申し込みは締め切りました</p>
-      <a
-        class="register-button"
-        style="text-decoration:0;"
-        href="https://sysken.connpass.com/event/338966/"
-        target="_blank"
-      >
-        SysHack2026 初陣の春に参加する
-      </a>
-    </section> -->
   </div>
-</Layout>
 
-<style lang="scss">
-  .container {
-    padding: 40px 20px 60px;
-    max-width: 800px;
-    margin: 0 auto;
-    font-size: 1.25rem;
-
-    p {
-      padding: 20px 0;
-      font-weight: 500;
-    }
-
-    ul {
-      padding-left: 2rem;
-      list-style: none;
-
-      li {
-        padding-top: 1rem;
-        text-indent: -1em;
-        padding-left: 1em;
-      }
-    }
-
-    h2 {
-      margin: 0 0 3rem;
-      font-size: 2rem;
-      font-weight: bold;
-      font-size: 2.5rem;
-      border-left: 3px solid;
-      padding-left: 1rem;
-      color: $primary-300;
-    }
-
-    h3 {
-      margin: 4rem 0 2rem;
-      text-align: center;
-      padding-bottom: 15px;
-      font-weight: 500;
-    }
-
-    h4 {
-      margin: 4rem 0 2rem;
-      color: $primary-300;
-      font-weight: 500;
-      font-size: 1.5rem;
-    }
-
-    table {
-      width: 100%;
-      margin-bottom: 1rem;
-      vertical-align: top;
-      border-color: #dee2e6;
-      caption-side: bottom;
-      border-collapse: collapse;
-      font-size: 1rem;
-      text-align: center;
-
-      tr,
-      th,
-      td {
-        padding: 10px;
-        font-weight: 500;
-        border-color: inherit;
-        border-style: solid;
-        border-width: 1px 1px;
-      }
-    }
-
-    section {
-      padding: 2rem 0;
-    }
-
-    .text-primary {
-      color: $primary-300;
-    }
-
-    .red {
-      color: rgb(220, 53, 69);
-    }
-
-    .top-section {
-      height: calc(100vh - 80px);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-
-      img {
-        height: auto;
-        width: 100%;
-        border-radius: 10px;
-      }
+  <style lang="scss">
+    .container {
+      padding: 40px 20px 60px;
+      max-width: 800px;
+      margin: 0 auto;
+      font-size: 1.25rem;
 
       p {
-        text-align: center;
-        font-weight: bold;
-        font-size: 2rem;
+        padding: 20px 0;
+        font-weight: 500;
       }
-    }
 
-    .notice-section {
-      padding: 15px;
-      margin-bottom: 50px;
-      border-top: 3px solid #ffe893;
-      border-bottom: 3px solid #ffe893;
-      background: linear-gradient(-45deg, #fff, #fcffc1);
+      ul {
+        padding-left: 2rem;
+        list-style: none;
+
+        li {
+          padding-top: 1rem;
+          text-indent: -1em;
+          padding-left: 1em;
+        }
+      }
 
       h2 {
-        padding: 0;
-        margin: 0 0 10px;
+        margin: 0 0 3rem;
         font-size: 2rem;
-        text-align: center;
-        border: none;
-        color: $primary-100;
+        font-weight: bold;
+        font-size: 2.5rem;
+        border-left: 3px solid;
+        padding-left: 1rem;
+        color: $primary-300;
       }
 
       h3 {
-        margin: 0;
-      }
-
-      h5 {
-        font-size: 1.2rem;
-      }
-
-      .notice-textbox {
-        width: auto;
-        font-size: 1.25rem;
-        height: auto;
-
-        .accordion {
-          display: flex;
-          flex-direction: column;
-          gap: 30px;
-
-          .accordion-checkbox {
-            display: none;
-          }
-
-          .accordion-title {
-            display: block;
-            font-weight: 500;
-            text-align: center;
-            padding: 1rem;
-            cursor: pointer;
-            border: 2px solid #0d6efd;
-            background-color: #ffffff;
-            border-radius: 0.3rem;
-
-            &:hover {
-              color: #ffffff;
-              background-color: #0d6efd;
-            }
-          }
-
-          .accordion-content {
-            display: none;
-            margin-top: 1rem;
-            padding: 1rem;
-            background: #ffffff;
-            border: 2px solid #0d6efd;
-            border-radius: 0.3rem;
-
-            h4 {
-              text-align: center;
-            }
-
-            & > div {
-              padding: 15px;
-            }
-          }
-
-          .accordion-checkbox:checked + .accordion-title + .accordion-content {
-            display: block;
-          }
-        }
-      }
-
-      .comment {
-        padding: 50px 0 10px;
-      }
-    }
-
-    .overview-section {
-      ul {
-        margin: 50px 0;
-      }
-    }
-
-    .sponsor-section {
-      .sponsor-list {
+        margin: 4rem 0 2rem;
         text-align: center;
-        display: flex;
-        justify-content: space-around;
-        padding: 15px;
-        margin: 50px 0;
-        flex-wrap: wrap;
-
-        & > div {
-          flex: 1 1 100%;
-          display: flex;
-          flex-direction: column;
-
-          @media (min-width: 600px) {
-            flex: 1 calc(100% / 3);
-          }
-
-          img {
-            margin-inline: auto;
-            width: 100px;
-            flex: 1 1 auto !important;
-          }
-        }
+        padding-bottom: 15px;
+        font-weight: 500;
       }
-    }
 
-    .cooperatingorg-section {
-      .orgs {
-        margin: 50px 0;
-        padding: 15px;
+      h4 {
+        margin: 4rem 0 2rem;
+        color: $primary-300;
+        font-weight: 500;
+        font-size: 1.5rem;
+      }
+
+      table {
+        width: 100%;
+        margin-bottom: 1rem;
+        vertical-align: top;
+        border-color: #dee2e6;
+        caption-side: bottom;
+        border-collapse: collapse;
+        font-size: 1rem;
         text-align: center;
-        display: grid;
-        grid-template-columns: 1fr;
-        gap: 50px 0;
 
-        @media (min-width: 600px) {
-          grid-template-columns: repeat(3, 1fr);
-        }
-
-        .org {
-          width: 100%;
-          display: flex;
-          flex-direction: column;
-          text-align: center;
-          justify-content: space-around;
-
-          .img-junbi {
-            margin-inline: auto;
-            width: 100px;
-            height: 100px;
-            line-height: 100px;
-            font-size: 1rem;
-            text-align: center;
-            white-space: nowrap;
-            border-radius: 30px;
-            border: 2px solid black;
-          }
-
-          img {
-            margin-inline: auto;
-            width: 100px;
-          }
+        tr,
+        th,
+        td {
+          padding: 10px;
+          font-weight: 500;
+          border-color: inherit;
+          border-style: solid;
+          border-width: 1px 1px;
         }
       }
-    }
 
-    .award-section {
-      ul {
-        margin: 10px 0;
+      section {
+        padding: 2rem 0;
       }
-    }
 
-    .about-registration-section,
-    .entry-qualification-section {
-      .comment {
-        margin-top: 50px;
-        text-align: center;
+      .text-primary {
+        color: $primary-300;
+      }
+
+      .red {
         color: rgb(220, 53, 69);
       }
-    }
 
-    .location-section {
-      .location {
+      .top-section {
+        height: calc(100vh - 80px);
         display: flex;
-        flex-wrap: wrap;
+        align-items: center;
+        justify-content: center;
 
-        & > div {
-          flex: 1 0 0%;
-
-          @media (max-width: 700px) {
-            flex: 0 0 auto;
-          }
+        img {
+          height: auto;
+          width: 100%;
+          border-radius: 10px;
         }
 
-        .location-img {
-          margin-inline: auto;
-          padding: 0;
-          width: 350px;
-          height: 350px;
-          border-radius: 30px;
-          overflow: hidden;
-
-          img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-          }
-        }
-
-        .location-text {
-          margin: auto;
+        p {
           text-align: center;
+          font-weight: bold;
+          font-size: 2rem;
+        }
+      }
 
-          .title {
-            margin: 0;
-            font-size: 4rem;
+      .notice-section {
+        padding: 15px;
+        margin-bottom: 50px;
+        border-top: 3px solid #ffe893;
+        border-bottom: 3px solid #ffe893;
+        background: linear-gradient(-45deg, #fff, #fcffc1);
+
+        h2 {
+          padding: 0;
+          margin: 0 0 10px;
+          font-size: 2rem;
+          text-align: center;
+          border: none;
+          color: $primary-100;
+        }
+
+        h3 {
+          margin: 0;
+        }
+
+        h5 {
+          font-size: 1.2rem;
+        }
+
+        .notice-textbox {
+          width: auto;
+          font-size: 1.25rem;
+          height: auto;
+
+          .accordion {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+
+            .accordion-checkbox {
+              display: none;
+            }
+
+            .accordion-title {
+              display: block;
+              font-weight: 500;
+              text-align: center;
+              padding: 1rem;
+              cursor: pointer;
+              border: 2px solid #0d6efd;
+              background-color: #ffffff;
+              border-radius: 0.3rem;
+
+              &:hover {
+                color: #ffffff;
+                background-color: #0d6efd;
+              }
+            }
+
+            .accordion-content {
+              display: block;
+              margin-top: 1rem;
+              padding: 1rem;
+              background: #ffffff;
+              border: 2px solid #0d6efd;
+              border-radius: 0.3rem;
+
+              h4 {
+                text-align: center;
+              }
+
+              & > div {
+                padding: 15px;
+              }
+            }
+          }
+        }
+
+        .comment {
+          padding: 50px 0 10px;
+        }
+      }
+
+      .overview-section {
+        ul {
+          margin: 50px 0;
+        }
+      }
+
+      .sponsor-section {
+        .sponsor-list {
+          text-align: center;
+          display: flex;
+          justify-content: space-around;
+          align-items: flex-end;
+          padding: 15px;
+          margin: 50px 0;
+          flex-wrap: wrap;
+
+          & > div {
+            flex: 1 1 100%;
+            display: flex;
+            flex-direction: column;
+
+            @media (min-width: 600px) {
+              flex: 1 calc(100% / 3);
+            }
+
+            img {
+              margin-inline: auto;
+              width: 100px;
+              height: auto;
+              object-fit: contain;
+            }
+          }
+        }
+      }
+
+      .cooperatingorg-section {
+        .orgs {
+          margin: 50px 0;
+          padding: 15px;
+          text-align: center;
+          display: grid;
+          grid-template-columns: 1fr;
+          gap: 50px 0;
+
+          @media (min-width: 600px) {
+            grid-template-columns: repeat(2, 1fr);
+          }
+
+          .org {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            text-align: center;
+            justify-content: space-around;
+
+            .img-junbi {
+              margin-inline: auto;
+              width: 100px;
+              height: 100px;
+              line-height: 100px;
+              font-size: 1rem;
+              text-align: center;
+              white-space: nowrap;
+              border-radius: 30px;
+              border: 2px solid black;
+            }
+
+            img {
+              margin-inline: auto;
+              width: 100px;
+            }
+          }
+        }
+      }
+
+      .award-section {
+        ul {
+          margin: 10px 0;
+        }
+      }
+
+      .about-registration-section,
+      .entry-qualification-section {
+        .comment {
+          margin-top: 50px;
+          text-align: center;
+          color: rgb(220, 53, 69);
+        }
+      }
+
+      .location-section {
+        .location {
+          display: flex;
+          flex-wrap: wrap;
+
+          & > div {
+            flex: 1 0 0%;
 
             @media (max-width: 700px) {
-              display: none;
+              flex: 0 0 auto;
             }
           }
 
-          .name {
-            margin: 0;
+          .location-img {
+            margin-inline: auto;
             padding: 0;
-            font-weight: 500;
+            width: 350px;
+            height: 350px;
+            border-radius: 30px;
+            overflow: hidden;
+
+            img {
+              width: 100%;
+              height: 100%;
+              object-fit: cover;
+            }
           }
 
-          .address {
-            margin: 0;
-            padding: 0;
-            font-size: 1rem;
+          .location-text {
+            margin: auto;
+            text-align: center;
+
+            .title {
+              margin: 0;
+              font-size: 4rem;
+
+              @media (max-width: 700px) {
+                display: none;
+              }
+            }
+
+            .name {
+              margin: 0;
+              padding: 0;
+              font-weight: 500;
+            }
+
+            .address {
+              margin: 0;
+              padding: 0;
+              font-size: 1rem;
+            }
           }
         }
       }
-    }
 
-    .event-timetable-section {
-      .date {
-        padding-left: 10px;
-        font-size: 1.1rem;
+      .event-timetable-section {
+        .date {
+          padding-left: 10px;
+          font-size: 1.1rem;
+        }
+      }
+
+      .register-section {
+        text-align: center;
+
+        .register-button {
+          display: block;
+          width: fit-content;
+          margin: 0 auto;
+          padding: 1rem;
+          border-radius: 1rem;
+          background-color: #fada7a;
+          cursor: initial;
+        }
+      }
+
+      .register-box {
+        padding: 20px;
+        background-color: #def5e7;
+        box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.175);
+        text-align: center;
+        border-radius: 10px;
+        position: fixed;
+        bottom: 15px;
+        right: 15px;
+
+        h2 {
+          border-left: none;
+        }
+
+        .register-deadline {
+          font-size: 1.2rem;
+        }
+
+        .register-here {
+          padding: 10px;
+          font-size: 1rem;
+        }
+
+        > * {
+          margin: 0;
+          padding: 0;
+        }
       }
     }
-
-    .register-section {
-      text-align: center;
-
-      .register-button {
-        display: block;
-        width: fit-content;
-        margin: 0 auto;
-        padding: 1rem;
-        border-radius: 1rem;
-        background-color: #fada7a;
-        cursor: initial;
-      }
-    }
-
-    .register-box {
-      padding: 20px;
-      background-color: #def5e7;
-      box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.175);
-      text-align: center;
-      border-radius: 10px;
-      position: fixed;
-      bottom: 15px;
-      right: 15px;
-
-      h2 {
-        border-left: none;
-      }
-
-      .register-deadline {
-        font-size: 1.2rem;
-      }
-
-      .register-here {
-        padding: 10px;
-        font-size: 1rem;
-      }
-
-      > * {
-        margin: 0;
-        padding: 0;
-      }
-    }
-  }
-</style>
+  </style>
+</Layout>
