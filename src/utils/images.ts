@@ -4,8 +4,6 @@ import bbg3 from '@/assets/top/bbq3.jpg';
 import begginershack1 from '@/assets/top/begginershack1.png';
 import begginershack2 from '@/assets/top/begginershack2.jpg';
 import benkyokai from '@/assets/top/benkyokai.png';
-import bowling from '@/assets/top/bowling.JPG';
-import soukai from '@/assets/top/soukai.JPG';
 import syscat from '@/assets/top/syscat.png';
 import undokai1 from '@/assets/top/undokai1.jpg';
 
@@ -19,13 +17,11 @@ export const PRELOAD_IMAGE_MAP = {
 export const IMAGE_MAP = {
   undokai1,
   benkyokai,
-  bowling,
   bbg1,
   bbg2,
   bbg3,
   begginershack1,
   begginershack2,
-  soukai,
   syscat,
 } as const;
 export const IMAGES = Object.values(IMAGE_MAP);
