@@ -12,6 +12,8 @@ import terminal from '@/assets/syshack/terminal.svg';
 import dmm from '@/assets/syshack/dmm_com.png';
 import churadata from '@/assets/syshack/churadata.png';
 import dip from '@/assets/syshack/dip.png';
+import supporterz from '@/assets/syshack/supporterz.png';
+import sazanami from '@/assets/syshack/sazanami_dev.svg';
 ---
 
 <Layout title="SysHack2026">
@@ -149,29 +151,34 @@ import dip from '@/assets/syshack/dip.png';
       <p>SysHackは以下の企業様にご支援をいただいています</p>
 
       <div class="sponsor-list">
-        <div>
+        <div class="org">
           <img alt="TechTrain様" src={techtrain.src} />
           <p>株式会社TechBowl様</p>
         </div>
 
-        <div>
+        <div class="org">
           <img alt="CyberAgent様" src={cyberagent.src} />
           <p>株式会社サイバーエージェント様</p>
         </div>
 
-        <div>
+        <div class="org">
           <img alt="合同会社DMM.com様" src={dmm.src} />
           <p>合同会社DMM.com様</p>
         </div>
 
-        <div>
+        <div class="org">
           <img alt="ちゅらデータ様" src={churadata.src} />
           <p>ちゅらデータ株式会社様</p>
         </div>
 
-        <div>
+        <div class="org">
           <img alt="ディップ株式会社" src={dip.src} />
-          <p>ディップ株式会社</p>
+          <p>ディップ株式会社様</p>
+        </div>
+
+        <div class="org">
+          <img alt="サポーターズ" src={supporterz.src} />
+          <p>サポーターズ様</p>
         </div>
 
         <div class="org">
@@ -192,6 +199,11 @@ import dip from '@/assets/syshack/dip.png';
         <div class="org">
           <img alt="Terminal" src={terminal.src} />
           <p class="mt-3">Terminal様</p>
+        </div>
+
+        <div class="org">
+          <img alt="さざなみ開発" src={sazanami.src} />
+          <p class="mt-3">さざなみ開発様</p>
         </div>
 
         <p>協力企業・学生団体は<wbr />増える可能性があります🔥</p>
@@ -270,17 +282,16 @@ import dip from '@/assets/syshack/dip.png';
         <h4>対象</h4>
         <ul>
           <li>ハッカソン参加経験2回以下</li>
-          <li>エンジニア歴2年未満</li>
+          <li>学生エンジニア歴2年未満</li>
         </ul>
 
         <p>愛知工業大学やシステム工学研究会に所属していない方でも参加可能です🔥</p>
 
-    
         <p>
           上記の条件を満たしていない方でも、<b>チームの中で1名のみ参加可能となっております。</b>
           <wbr />
-なお、初心者向けのハッカソンとなっておりますので常識範囲内のご配慮をお願いいたします。
-</p>
+          なお、初心者向けのハッカソンとなっておりますので常識範囲内のご配慮をお願いいたします。
+        </p>
         <p>
           その他、参加要件を満たしていないと判断した場合は、誠に恐れ入りますが参加をご遠慮ください。
           <br />
@@ -311,16 +322,15 @@ import dip from '@/assets/syshack/dip.png';
         <h2>よくある質問</h2>
         <h4>Q. 以前に作成したプロダクトで参加することは可能ですか？</h4>
         <p>A. 不可となります。開発期間中に制作したものに限ります。</p>
-        
+
         <h4>Q. 開発テーマはいつ発表されますか？</h4>
         <p>A. テーマはありません。プログラミングを用いたものであれば、なんでも大丈夫です。</p>
-        
+
         <h4>Q. ハッカソン経験が浅く、自信がないのですが大丈夫ですか？</h4>
         <p>A. 大丈夫です！メンターが複数人いますので、安心してご参加ください。</p>
-        
+
         <h4>Q. 昼食はでるのでしょうか？</h4>
         <p>A. 昼食のご用意はありませんので、持ってきていただくか、構内のコンビニをご利用ください。</p>
-
       </section>
 
       {/* 開催場所 */}
