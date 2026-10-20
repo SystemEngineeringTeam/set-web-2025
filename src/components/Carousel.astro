@@ -10,13 +10,11 @@ const { IMAGES } = Astro.props;
 
 <div class="swiper">
   <div class="swiper-wrapper">
-    {
-      IMAGES.map((image) => (
-        <div class="swiper-slide">
-          <Image src={image} alt="carousel" />
-        </div>
-      ))
-    }
+    {IMAGES.map((image) => (
+      <div class="swiper-slide">
+        <Image src={image} alt="carousel" />
+      </div>
+    ))}
   </div>
 
   <div class="swiper-pagination"></div>

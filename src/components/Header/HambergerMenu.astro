@@ -22,13 +22,11 @@ const { pages } = Astro.props;
     <label class="close" for="hamburger"></label>
 
     <ul>
-      {
-        pages.map((page) => (
-          <li>
-            <a href={toPath(page, true)}>{page.data.title}</a>
-          </li>
-        ))
-      }
+      {pages.map((page) => (
+        <li>
+          <a href={toPath(page, true)}>{page.data.title}</a>
+        </li>
+      ))}
     </ul>
   </div>
 

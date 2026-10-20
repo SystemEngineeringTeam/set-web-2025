@@ -36,16 +36,13 @@ async function toWebp(imagePath: string) {
   const absolutePath = toAbsolutePath(imagePath);
   const absoluteWebpPath = toAbsolutePath(toWebpPath(imagePath));
   if (absolutePath.endsWith('.webp') || absolutePath.endsWith('.svg')) return;
-  exec(
-    `cwebp -resize 810 0 ${absolutePath} -o ${absoluteWebpPath}`,
-    (error) => {
-      if (error) {
-        console.error(`Error: ${error.message}`);
-        return;
-      }
-      exec(`rm ${absolutePath}`);
-    },
-  );
+  exec(`cwebp -resize 810 0 ${absolutePath} -o ${absoluteWebpPath}`, (error) => {
+    if (error) {
+      console.error(`Error: ${error.message}`);
+      return;
+    }
+    exec(`rm ${absolutePath}`);
+  });
 }
 
 /*
@@ -55,9 +52,7 @@ async function toWebp(imagePath: string) {
  * @return ディレクトリの一覧
  */
 function getDirectories(filePath: string) {
-  return fs
-    .readdirSync(filePath)
-    .filter((file) => fs.statSync(path.join(filePath, file)).isDirectory());
+  return fs.readdirSync(filePath).filter((file) => fs.statSync(path.join(filePath, file)).isDirectory());
 }
 
 /*

@@ -28,7 +28,9 @@ const { page, pageNum, posts } = Astro.props;
     <h1>投稿一覧</h1>
 
     <section>
-      {posts.map((post) => <Card post={post} min />)}
+      {posts.map((post) => (
+        <Card post={post} min />
+      ))}
     </section>
 
     <Pagenation page={page} pageNum={pageNum} getPagePath={(n) => `/posts/${n}`} />

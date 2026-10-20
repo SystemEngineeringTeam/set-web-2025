@@ -27,23 +27,25 @@ const recentPosts = await getFormatedCollection('posts', 3);
   <section class:list={['content', 'recent-section']}>
     <h2>Recent Posts</h2>
     <div>
-      {recentPosts.map((post) => <Card post={post} />)}
+      {recentPosts.map((post) => (
+        <Card post={post} />
+      ))}
     </div>
-    <a href="/posts" class="more">Show more</a>
+    <a href="/posts" class="more">
+      Show more
+    </a>
   </section>
 
-  {
-    contents.slice(1).map((content, i) => (
-      <>
-        <section>
-          <ImageArea index={i} />
-        </section>
-        <section class="content">
-          <Render markdown={content} style="no-underline" />
-        </section>
-      </>
-    ))
-  }
+  {contents.slice(1).map((content, i) => (
+    <>
+      <section>
+        <ImageArea index={i} />
+      </section>
+      <section class="content">
+        <Render markdown={content} style="no-underline" />
+      </section>
+    </>
+  ))}
 </Layout>
 
 <style lang="scss">

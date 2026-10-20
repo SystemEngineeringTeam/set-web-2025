@@ -16,7 +16,9 @@ export async function getStaticPaths() {}
     <h1>投稿一覧</h1>
 
     <section>
-      {posts.slice(0, CONTENTS_NUM).map((post) => <Card post={post} min />)}
+      {posts.slice(0, CONTENTS_NUM).map((post) => (
+        <Card post={post} min />
+      ))}
     </section>
 
     <Pagenation page={1} pageNum={pageNum} getPagePath={(n) => `/posts/${n}`} />
