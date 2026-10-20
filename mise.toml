@@ -1,0 +1,22 @@
+[tools]
+node = "24"
+pnpm = "10"
+"npm:@antfu/ni" = "latest"
+
+[shell_alias]
+cf = "nlx --local cf"
+
+[tasks.cf]
+run = "nlx --local cf"
+
+[tasks.bootstrap]
+run = ["ni", "nr astro sync"]
+
+[tasks.dev]
+run = { task = "cf", args = ["dev"] }
+
+[tasks.build]
+run = { task = "cf", args = ["build"] }
+
+[tasks.check]
+run = ["nr check"]

@@ -6,33 +6,42 @@
     "node": "20.0.0"
   },
   "scripts": {
+    "postinstall": "astro sync && nr cf-typegen",
     "dev": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
     "astro": "astro",
+    "check": "prettier --check . && tsc --noEmit && astro check",
     "format": "prettier -w .",
     "format:ci": "prettier -c .",
     "download": "jiti ./script/download.ts",
     "convert": "jiti ./script/convert.ts",
-    "resize": "source ./script/resize.sh"
+    "resize": "source ./script/resize.sh",
+    "deploy": "cf deploy",
+    "cf-typegen": "cf workers types"
   },
   "dependencies": {
-    "@astrojs/mdx": "^4.0.8",
-    "@astrojs/sitemap": "^3.2.1",
-    "astro": "^5.2.1",
-    "astro-auto-import": "^0.4.4",
-    "marked": "^15.0.6",
-    "remeda": "^2.20.0",
-    "sass": "^1.83.4",
+    "@astrojs/check": "^0.9.11",
+    "@astrojs/cloudflare": "15.0.0-beta.2",
+    "@astrojs/mdx": "^8.1.0",
+    "@astrojs/sitemap": "^3.7.4",
+    "astro": "^7.4.1",
+    "astro-auto-import": "^0.4.6",
+    "marked": "^15.0.12",
+    "remeda": "^2.52.0",
+    "sass": "^1.105.2",
     "sharp": "^0.33.5",
-    "swiper": "^11.2.2",
+    "swiper": "^11.2.10",
     "webfontloader": "^1.6.28"
   },
   "devDependencies": {
+    "@astrojs/markdown-remark": "^7.3.3",
     "@types/webfontloader": "^1.6.38",
-    "axios": "^1.7.9",
-    "jiti": "^2.4.2",
-    "prettier": "^3.4.2",
-    "prettier-plugin-astro": "^0.14.1"
+    "axios": "^1.20.0",
+    "cf": "1.0.0-beta.18",
+    "jiti": "^2.7.0",
+    "prettier": "^3.9.10",
+    "prettier-plugin-astro": "^1.1.1",
+    "typescript": "^6.0.3"
   }
 }

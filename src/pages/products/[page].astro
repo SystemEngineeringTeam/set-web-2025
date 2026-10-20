@@ -28,7 +28,9 @@ const { page, pageNum, products } = Astro.props;
     <h1>制作物一覧</h1>
 
     <section>
-      {products.map((product) => <Card product={product} />)}
+      {products.map((product) => (
+        <Card product={product} />
+      ))}
     </section>
 
     <Pagenation page={page} pageNum={pageNum} getPagePath={(n) => `/products/${n}`} />

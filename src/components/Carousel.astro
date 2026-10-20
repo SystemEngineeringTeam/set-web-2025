@@ -10,13 +10,11 @@ const { IMAGES } = Astro.props;
 
 <div class="swiper">
   <div class="swiper-wrapper">
-    {
-      IMAGES.map((image) => (
-        <div class="swiper-slide">
-          <Image src={image} alt="carousel" />
-        </div>
-      ))
-    }
+    {IMAGES.map((image) => (
+      <div class="swiper-slide">
+        <Image src={image} alt="carousel" />
+      </div>
+    ))}
   </div>
 
   <div class="swiper-pagination"></div>
@@ -44,6 +42,7 @@ const { IMAGES } = Astro.props;
 <script>
   import Swiper from 'swiper';
   import { Pagination, Autoplay } from 'swiper/modules';
+  // @ts-expect-error: no stub!
   import 'swiper/css/bundle';
 
   export const swiperConfig = {

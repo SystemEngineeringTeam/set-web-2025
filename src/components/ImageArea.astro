@@ -25,13 +25,11 @@ const src = pipe({ srcSnap, srcId, index }, ({ srcSnap, srcId, index }) => {
 ---
 
 <div>
-  {
-    typeof src === 'string' ? (
-      <img src={src} alt="image" />
-    ) : (
-      <Image width={src.width} src={src} alt="background image" />
-    )
-  }
+  {typeof src === 'string' ? (
+    <img src={src} alt="image" />
+  ) : (
+    <Image width={src.width} src={src} alt="background image" />
+  )}
 </div>
 
 <style lang="scss">
