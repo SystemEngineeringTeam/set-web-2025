@@ -1,5 +1,5 @@
 import { PAGE_STYLE } from '@/consts/page-style';
-import { getCollection, z } from 'astro:content';
+import { z } from 'astro/zod';
 
 function esaSchema<T extends Record<string, z.Schema>>(tagsSchema: T) {
   return z.object({
@@ -29,8 +29,8 @@ function esaSchema<T extends Record<string, z.Schema>>(tagsSchema: T) {
 
 export const zPagesSchema = esaSchema({
   sort: z.preprocess((sort) => {
-    if (sort === undefined) return Infinity;
-    if (Number.isNaN(Number(sort))) return Infinity;
+    if (sort === undefined) return Number.MAX_SAFE_INTEGER;
+    if (Number.isNaN(Number(sort))) return Number.MAX_SAFE_INTEGER;
     return Number(sort);
   }, z.number()),
   path: z.preprocess((path) => path && String(path).replace('¥', ''), z.string().optional()),
