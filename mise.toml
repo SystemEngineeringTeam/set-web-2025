@@ -10,7 +10,7 @@ cf = "nlx --local cf"
 run = "nlx --local cf"
 
 [tasks.bootstrap]
-run = ["ni"]
+run = ["ni", "nr astro sync"]
 
 [tasks.dev]
 run = { task = "cf", args = ["dev"] }

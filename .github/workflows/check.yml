@@ -1,4 +1,4 @@
-name: Cloudflare Pages Deploy
+name: Check
 
 on:
   workflow_call:
