@@ -1,7 +1,7 @@
 import { PAGE_STYLE } from '@/consts/page-style';
 import { z } from 'astro/zod';
 
-function esaSchema<T extends Record<string, z.Schema>>(tagsSchema: T) {
+function esaSchema<T extends Record<string, z.ZodType>>(tagsSchema: T) {
   return z.object({
     title: z.string(),
     category: z.string().nullable(),

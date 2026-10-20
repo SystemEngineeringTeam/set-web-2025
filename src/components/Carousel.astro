@@ -42,6 +42,7 @@ const { IMAGES } = Astro.props;
 <script>
   import Swiper from 'swiper';
   import { Pagination, Autoplay } from 'swiper/modules';
+  // @ts-expect-error: no stub!
   import 'swiper/css/bundle';
 
   export const swiperConfig = {

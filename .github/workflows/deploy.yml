@@ -19,10 +19,10 @@ jobs:
 
     steps:
       - name: 📥 Checkout repository
-        uses: actions/checkout@v4.4.0
+        uses: actions/checkout@v7
       - name: 📸 Calculate commit hash
         id: sha
-        uses: prompt/actions-commit-hash@v3.0.0
+        uses: prompt/actions-commit-hash@v4
       - name: 🔨 Prepare dev environment
         uses: jdx/mise-action@v5.2.1
         with:

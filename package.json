@@ -17,6 +17,7 @@
     "cf-typegen": "cf workers types"
   },
   "dependencies": {
+    "@astrojs/check": "^0.9.11",
     "@astrojs/cloudflare": "15.0.0-beta.2",
     "@astrojs/mdx": "^8.1.0",
     "@astrojs/sitemap": "^3.7.4",
@@ -37,6 +38,6 @@
     "jiti": "^2.7.0",
     "prettier": "^3.9.10",
     "prettier-plugin-astro": "^1.1.1",
-    "typescript": "^7.0.2"
+    "typescript": "^6.0.3"
   }
 }
