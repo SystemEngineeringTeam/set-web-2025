@@ -36,7 +36,7 @@ export default defineConfig({
     enabled: false,
   },
   image: {
-    domains: ['img.esa.io'],
+    remotePatterns: [{ protocol: 'https' }, { protocol: 'http' }],
   },
 
   adapter: cloudflare(),

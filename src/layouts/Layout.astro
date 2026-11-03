@@ -21,8 +21,9 @@ interface Props {
   };
 }
 
-const { title, scrollable, ogp: _ogp } = Astro.props;
+const { title: title_, scrollable, ogp: _ogp } = Astro.props;
 
+const title = title_ == undefined ? SITE_NAME : `${title_} | シス研`;
 const faviconType = `image/${FAVICON.format}`;
 const getDefaultOgp = (): ImageMetadata => {
   const src = new URL(OGP_IMAGE.src, Astro.url);
@@ -35,6 +36,8 @@ const getDefaultOgp = (): ImageMetadata => {
 };
 
 const ogp = _ogp?.image ?? getDefaultOgp();
+const ogpImageType = `image/${ogp.format}`;
+const ogpImageSrc = new URL(ogp.src, Astro.url).toString();
 ---
 
 <!doctype html>
@@ -47,7 +50,7 @@ const ogp = _ogp?.image ?? getDefaultOgp();
     {Object.values(PRELOAD_IMAGE_MAP).map((value) => (
       <link rel="preload" href={value} as="image" />
     ))}
-    <title>{title == undefined ? 'システム工学研究会' : `${title} | シス研`}</title>
+    <title>{title}</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New&display=swap" rel="stylesheet" />
@@ -56,23 +59,23 @@ const ogp = _ogp?.image ?? getDefaultOgp();
     <meta name="application-name" content={SITE_NAME} />
     <meta name="keywords" content={KEY_WORDS.join(',')} />
     <meta name="category" content={CATEGORY} />
-    <meta property="og:title" content={SITE_NAME} />
+    <meta property="og:title" content={title} />
     <meta property="og:description" content={DESCRIPTION} />
     <meta property="og:url" content={HOST_NAME} />
     <meta property="og:site_name" content={SITE_NAME} />
     <meta property="og:locale" content="ja_JP" />
-    <meta property="og:image:type" content={ogp.format} />
+    <meta property="og:image:type" content={ogpImageType} />
     <meta property="og:image:width" content={ogp.width.toString()} />
     <meta property="og:image:height" content={ogp.height.toString()} />
-    <meta property="og:image" content={ogp.src} />
+    <meta property="og:image" content={ogpImageSrc} />
     <meta property="og:type" content={CATEGORY} />
     <meta name="twitter:card" content={TWITTER_CARD_TYPE} />
-    <meta name="twitter:title" content={SITE_NAME} />
+    <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={DESCRIPTION} />
-    <meta name="twitter:image:type" content={ogp.format} />
+    <meta name="twitter:image:type" content={ogpImageType} />
     <meta name="twitter:image:width" content={ogp.width.toString()} />
     <meta name="twitter:image:height" content={ogp.height.toString()} />
-    <meta name="twitter:image" content={ogp.src} />
+    <meta name="twitter:image" content={ogpImageSrc} />
   </head>
   <!--  γ´￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣ -->
   <!--  l  あなたもアデリーペンギンを推しませんか  -->

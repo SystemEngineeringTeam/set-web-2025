@@ -3,9 +3,9 @@ import Layout from '@/layouts/Layout.astro';
 import { render, type CollectionEntry } from 'astro:content';
 import '@/styles/md-styles.scss';
 import { getCollection } from 'astro:content';
-import { getImage } from 'astro:assets';
 import { pickPostThumbnail } from '@/utils/contents';
 import { inferRemoteSize } from 'astro:assets';
+import { DEFAULT_PRODUCT_THUMBNAIL } from '@/utils/images';
 
 export async function getStaticPaths() {
   const posts = await getCollection('posts');
@@ -20,35 +20,20 @@ type Props = CollectionEntry<'pages'>;
 const post = Astro.props;
 const { Content } = await render(post);
 
-const localImages = import.meta.glob<{ default: ImageMetadata }>(
-  '/public/img/**/*.{jpeg,jpg,png,tiff,webp,gif,svg,avif}',
-);
-
 async function createOgpImageMetadata(): Promise<ImageMetadata | undefined> {
-  const remoteUrl = pickPostThumbnail(post.body);
-  if (!remoteUrl) return undefined;
+  const url = pickPostThumbnail(post.body);
+  const urlWithOrigin = url != null ? new URL(url, Astro.url).toString() : undefined;
 
-  if (remoteUrl.startsWith('/')) {
-    const loader = localImages[`/public${remoteUrl}`];
-    if (!loader) return undefined;
-    const { default: localMeta } = await loader();
+  if (urlWithOrigin == null) {
     return {
-      ...localMeta,
-      src: remoteUrl,
+      ...DEFAULT_PRODUCT_THUMBNAIL,
+      src: new URL(DEFAULT_PRODUCT_THUMBNAIL.src, Astro.url).toString(),
     };
   }
 
-  const meta = await getImage({
-    src: remoteUrl,
-    inferSize: true,
-  });
-  const metaExtended = await inferRemoteSize(remoteUrl);
-
   return {
-    ...meta.options,
-    ...metaExtended,
-    // NOTE: `meta.src` は getter で適切な url.base を用いて解決される.
-    src: meta.src,
+    ...(await inferRemoteSize(urlWithOrigin)),
+    src: urlWithOrigin,
   };
 }
 const image = await createOgpImageMetadata();
