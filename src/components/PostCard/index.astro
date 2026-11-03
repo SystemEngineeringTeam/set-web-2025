@@ -1,5 +1,6 @@
 ---
 import { getCreatedAt, pickPostThumbnail, toText } from '@/utils/contents';
+import { DEFAULT_POST_THUMBNAIL } from '@/utils/images';
 import type { CollectionEntry } from 'astro:content';
 
 interface Props {
@@ -11,7 +12,7 @@ const { post, min } = Astro.props;
 
 <a href={`/post/${post.data.number}`} class="article" data-min={min}>
   <div class="thumbnail">
-    <img src={pickPostThumbnail(post.body)} alt="post thumbnail" class="img" />
+    <img src={pickPostThumbnail(post.body) ?? DEFAULT_POST_THUMBNAIL.src} alt="post thumbnail" class="img" />
   </div>
 
   <div class="content">

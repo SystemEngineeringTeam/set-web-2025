@@ -35,6 +35,9 @@ export default defineConfig({
   devToolbar: {
     enabled: false,
   },
+  image: {
+    domains: ['img.esa.io'],
+  },
 
   adapter: cloudflare(),
 });

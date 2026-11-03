@@ -3,6 +3,9 @@ import Layout from '@/layouts/Layout.astro';
 import { render, type CollectionEntry } from 'astro:content';
 import '@/styles/md-styles.scss';
 import { getCollection } from 'astro:content';
+import { getImage } from 'astro:assets';
+import { pickPostThumbnail } from '@/utils/contents';
+import { inferRemoteSize } from 'astro:assets';
 
 export async function getStaticPaths() {
   const posts = await getCollection('posts');
@@ -16,9 +19,42 @@ type Props = CollectionEntry<'pages'>;
 
 const post = Astro.props;
 const { Content } = await render(post);
+
+const localImages = import.meta.glob<{ default: ImageMetadata }>(
+  '/public/img/**/*.{jpeg,jpg,png,tiff,webp,gif,svg,avif}',
+);
+
+async function createOgpImageMetadata(): Promise<ImageMetadata | undefined> {
+  const remoteUrl = pickPostThumbnail(post.body);
+  if (!remoteUrl) return undefined;
+
+  if (remoteUrl.startsWith('/')) {
+    const loader = localImages[`/public${remoteUrl}`];
+    if (!loader) return undefined;
+    const { default: localMeta } = await loader();
+    return {
+      ...localMeta,
+      src: remoteUrl,
+    };
+  }
+
+  const meta = await getImage({
+    src: remoteUrl,
+    inferSize: true,
+  });
+  const metaExtended = await inferRemoteSize(remoteUrl);
+
+  return {
+    ...meta.options,
+    ...metaExtended,
+    // NOTE: `meta.src` は getter で適切な url.base を用いて解決される.
+    src: meta.src,
+  };
+}
+const image = await createOgpImageMetadata();
 ---
 
-<Layout title={post.data.title}>
+<Layout title={post.data.title} ogp={{ image }}>
   <article data-style="default">
     <Content />
   </article>
