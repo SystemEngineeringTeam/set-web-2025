@@ -3,6 +3,9 @@ import Layout from '@/layouts/Layout.astro';
 import { render, type CollectionEntry } from 'astro:content';
 import '@/styles/md-styles.scss';
 import { getCollection } from 'astro:content';
+import { getImage, inferRemoteSize } from 'astro:assets';
+import { pickPostThumbnail } from '@/utils/contents';
+import { DEFAULT_PRODUCT_THUMBNAIL } from '@/utils/images';
 
 export async function getStaticPaths() {
   const posts = await getCollection('posts');
@@ -16,9 +19,31 @@ type Props = CollectionEntry<'pages'>;
 
 const post = Astro.props;
 const { Content } = await render(post);
+
+async function createOgpImageMetadata(): Promise<ImageMetadata | undefined> {
+  const url = pickPostThumbnail(post.body);
+  const urlWithOrigin = url != null ? new URL(url, Astro.url).toString() : undefined;
+
+  if (urlWithOrigin == null) {
+    return {
+      ...DEFAULT_PRODUCT_THUMBNAIL,
+      src: new URL(DEFAULT_PRODUCT_THUMBNAIL.src, Astro.url).toString(),
+    };
+  }
+
+  const meta = await getImage({ src: urlWithOrigin, inferSize: true });
+  const metaExtended = await inferRemoteSize(urlWithOrigin);
+
+  return {
+    ...meta.options,
+    ...metaExtended,
+    src: new URL(meta.src, Astro.url).toString(),
+  };
+}
+const image = await createOgpImageMetadata();
 ---
 
-<Layout title={post.data.title}>
+<Layout title={post.data.title} ogp={{ image }}>
   <article data-style="default">
     <Content />
   </article>

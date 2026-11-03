@@ -1,6 +1,5 @@
 import { getCollection, type CollectionEntry, type CollectionKey } from 'astro:content';
 import { toPath } from './path';
-import { DEFAULT_POST_THUMBNAIL } from './images';
 import { pipe } from 'remeda';
 
 const STATIC_ROUTES = ['', 'posts', 'post', 'products', 'syshack2025'];
@@ -36,10 +35,10 @@ export function toText(md: string | undefined, limit = 150) {
   return text ?? '';
 }
 
-export function pickPostThumbnail(md: string | undefined): string {
+export function pickPostThumbnail(md: string | undefined): string | undefined {
   const regex = IMAGE_REGEX;
   const matches = md?.match(regex);
-  return matches?.at(2) ?? matches?.at(3) ?? DEFAULT_POST_THUMBNAIL.src;
+  return matches?.at(2) ?? matches?.at(3);
 }
 
 export function getCreatedAt(post: CollectionEntry<CollectionKey>, format = false) {

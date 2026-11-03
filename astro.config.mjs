@@ -35,6 +35,9 @@ export default defineConfig({
   devToolbar: {
     enabled: false,
   },
+  image: {
+    remotePatterns: [{ protocol: 'https' }, { protocol: 'http' }],
+  },
 
   adapter: cloudflare(),
 });
