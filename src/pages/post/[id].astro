@@ -3,8 +3,8 @@ import Layout from '@/layouts/Layout.astro';
 import { render, type CollectionEntry } from 'astro:content';
 import '@/styles/md-styles.scss';
 import { getCollection } from 'astro:content';
+import { getImage, inferRemoteSize } from 'astro:assets';
 import { pickPostThumbnail } from '@/utils/contents';
-import { inferRemoteSize } from 'astro:assets';
 import { DEFAULT_PRODUCT_THUMBNAIL } from '@/utils/images';
 
 export async function getStaticPaths() {
@@ -31,9 +31,13 @@ async function createOgpImageMetadata(): Promise<ImageMetadata | undefined> {
     };
   }
 
+  const meta = await getImage({ src: urlWithOrigin, inferSize: true });
+  const metaExtended = await inferRemoteSize(urlWithOrigin);
+
   return {
-    ...(await inferRemoteSize(urlWithOrigin)),
-    src: urlWithOrigin,
+    ...meta.options,
+    ...metaExtended,
+    src: new URL(meta.src, Astro.url).toString(),
   };
 }
 const image = await createOgpImageMetadata();

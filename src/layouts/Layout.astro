@@ -2,16 +2,7 @@
 import { PRELOAD_IMAGE_MAP } from '@/utils/images';
 import Header from '@/components/Header/index.astro';
 import Footer from '@/components/Footer/index.astro';
-import {
-  CATEGORY,
-  DESCRIPTION,
-  FAVICON,
-  HOST_NAME,
-  KEY_WORDS,
-  OGP_IMAGE,
-  SITE_NAME,
-  TWITTER_CARD_TYPE,
-} from '@/consts/meta';
+import { CATEGORY, DESCRIPTION, FAVICON, KEY_WORDS, OGP_IMAGE, SITE_NAME, TWITTER_CARD_TYPE } from '@/consts/meta';
 
 interface Props {
   title?: string;
@@ -36,7 +27,8 @@ const getDefaultOgp = (): ImageMetadata => {
 };
 
 const ogp = _ogp?.image ?? getDefaultOgp();
-const ogpImageType = `image/${ogp.format}`;
+const ogpFormat = ogp.format === 'jpg' ? 'jpeg' : ogp.format;
+const ogpImageType = `image/${ogpFormat}`;
 const ogpImageSrc = new URL(ogp.src, Astro.url).toString();
 ---
 
@@ -61,7 +53,7 @@ const ogpImageSrc = new URL(ogp.src, Astro.url).toString();
     <meta name="category" content={CATEGORY} />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={DESCRIPTION} />
-    <meta property="og:url" content={HOST_NAME} />
+    <meta property="og:url" content={Astro.url.toString()} />
     <meta property="og:site_name" content={SITE_NAME} />
     <meta property="og:locale" content="ja_JP" />
     <meta property="og:image:type" content={ogpImageType} />
