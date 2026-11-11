@@ -62,12 +62,13 @@ article[data-style='no-underline'] {
   }
 
   ol {
+    padding-left: 2em;
     list-style: decimal;
   }
 
   ul {
     padding-left: 2em;
-    list-style: inside;
+    list-style: disc;
 
     ul {
       list-style-type: circle;
